@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "906204361978",
+    "firebase_url": "https://data-jentik.firebaseio.com",
+    "project_id": "data-jentik",
+    "storage_bucket": "data-jentik.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906204361978:android:bcfabb203c1b88963f0543",
+        "android_client_info": {
+          "package_name": "com.joshua.r0th.jentikrumah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906204361978-3i47gju4i199crnn711e21tvisv6bmqj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.joshua.r0th.jentikrumah",
+            "certificate_hash": "7aa55ee8e0767cba0c35b4073602c2b0864945d9"
+          }
+        },
+        {
+          "client_id": "906204361978-0o0vs3bjhc0gv9iad8mhjncpsb1sbgis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwn09CWZLaqbEQut-VAdYY2G2wNFthybI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "906204361978-0o0vs3bjhc0gv9iad8mhjncpsb1sbgis.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
