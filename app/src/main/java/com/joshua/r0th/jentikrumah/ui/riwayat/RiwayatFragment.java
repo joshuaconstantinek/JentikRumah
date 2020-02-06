@@ -39,28 +39,21 @@ private DatabaseReference reference;
         View root = inflater.inflate(R.layout.fragment_riwayat, container, false);
             recyclerView = root.findViewById(R.id.rec1);
             recyclerView.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-
-
-        items =new ArrayList<>();
-
-        DisplayData();
-                return root;
-    }
-    public void DisplayData(){
         reference = FirebaseDatabase.getInstance().getReference("Data");
+        items =new ArrayList<>();
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 items.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    data_item dataitem = snapshot.getValue(data_item.class);
-                    items.add(dataitem);
+                    data_item dataitem1 = snapshot.getValue(data_item.class);
+                    items.add(dataitem1);
                 }
                 adapter = new itemAdapter(getContext(),items);
                 recyclerView.setAdapter(adapter);
-
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -68,6 +61,7 @@ private DatabaseReference reference;
 
             }
         });
+                return root;
 
     }
 }
