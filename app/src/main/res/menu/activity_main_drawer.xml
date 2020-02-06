@@ -3,15 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item android:title="Visit My Profile">
-        <menu>
-            <item
-                android:id="@+id/nav_profile"
-                android:icon="@drawable/user_icon"
-                android:title="@string/profile" />
-        </menu>
-    </item>
-
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"

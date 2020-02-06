@@ -45,7 +45,6 @@ Button contoh;
         alamatrumah = root.findViewById(R.id.Alamat);
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-        contoh = root.findViewById(R.id.contoh);
         userId = fAuth.getCurrentUser().getUid();
         contoh.setOnClickListener(new View.OnClickListener() {
             @Override

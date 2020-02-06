@@ -49,8 +49,5 @@ public class contoh extends AppCompatActivity {
         });
     }
 
-    public void goProfil(View view){
-        Intent intent = new Intent(getApplicationContext(), contoh.class);
-        startActivity(intent);
-    }
+
 }

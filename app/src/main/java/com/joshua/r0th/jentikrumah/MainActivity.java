@@ -1,5 +1,6 @@
 package com.joshua.r0th.jentikrumah;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -58,5 +59,8 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
+    public void goProfil(View view){
+        Intent intent = new Intent(getApplicationContext(), contoh.class);
+        startActivity(intent);
+    }
 }
