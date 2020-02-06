@@ -1,6 +1,8 @@
 package com.joshua.r0th.jentikrumah;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -45,5 +47,10 @@ public class contoh extends AppCompatActivity {
                 alamatrumah.setText(documentSnapshot.getString("Alamat"));
             }
         });
+    }
+
+    public void goProfil(View view){
+        Intent intent = new Intent(getApplicationContext(), contoh.class);
+        startActivity(intent);
     }
 }
