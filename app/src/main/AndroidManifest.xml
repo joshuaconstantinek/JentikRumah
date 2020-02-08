@@ -38,6 +38,9 @@
         <activity android:name="com.joshua.r0th.jentikrumah.ui.riwayat.RiwayatFragment"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".forgot_password"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

@@ -1,62 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="30dp"
-    android:layout_marginLeft="50dp"
-    android:background="#a7bad9">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-<TextView
-    android:layout_width="wrap_content"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+
     android:layout_height="match_parent"
-    android:text="Nama    : "/>
-        <TextView
-            android:text="date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tanggal"/>
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+    android:background="@drawable/list_selector"
+
+    android:orientation="vertical"
+
+    android:padding="2dp">
+
+    <TableLayout
+
+        android:layout_width="fill_parent"
+
+        android:padding="3dp"
+
+        android:layout_height="wrap_content">
+
+        <TableRow
+
+            android:layout_width="fill_parent"
+
+            android:layout_height="wrap_content">
 
             <TextView
 
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
-                android:text="Tanggal : " />
+
+                android:layout_marginRight="2dp"
+
+                android:text="Name: "
+
+                android:textColor="#000" />
 
             <TextView
-                android:id="@+id/namainput"
+
+                android:id="@+id/lr_fullName"
+
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
-                android:text="nama" />
-        </LinearLayout>
 
-    </LinearLayout>
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="try me"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+                android:layout_marginRight="10dp"
 
-    </LinearLayout>
+                android:layout_weight="1"
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="try me2" />
-</LinearLayout>
+                android:text="Full Name"
+
+                android:textColor="#0000dd"
+
+                android:textSize="15dp"
+
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+
+            android:layout_width="fill_parent"
+
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="2dp"
+
+                android:text="Tanggal: "
+
+                android:textColor="#000" />
+
+            <TextView
+
+                android:id="@+id/tanggal"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="10dp"
+
+                android:layout_weight="1"
+
+                android:text="Tanggal"
+
+                android:textColor="#0000dd"
+
+                android:textSize="15dp"
+
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+
+            android:layout_width="fill_parent"
+
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="2dp"
+
+                android:text="Mobile: "
+
+                android:textColor="#000" />
+
+            <TextView
+
+                android:id="@+id/lr_mobile"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="10dp"
+
+                android:layout_weight="1"
+
+                android:text="Mobile"
+
+                android:textColor="#0000dd"
+
+                android:textSize="15dip"
+
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+
+            android:layout_width="fill_parent"
+
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="2dp"
+
+                android:text="Email: "
+
+                android:textColor="#000" />
+
+            <TextView
+
+                android:id="@+id/lr_email"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="10dp"
+
+                android:layout_weight="1"
+
+                android:text="Email"
+
+                android:textColor="#0000dd"
+
+                android:textSize="15dp" />
+        </TableRow>
+
+
+        <TableRow
+
+            android:layout_width="fill_parent"
+
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="2dp"
+
+                android:text="Description: "
+
+                android:textColor="#000" />
+
+            <TextView
+
+                android:id="@+id/lr_descriptin"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="10dp"
+
+                android:layout_weight="1"
+
+                android:text="description"
+
+                android:textColor="#0000dd"
+
+                android:textSize="15dp" />
+        </TableRow>
+
+
+
+
+    </TableLayout>
+
+    <ImageView
+
+        android:id="@+id/lr_deleteBtn"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:src="@drawable/delete"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+
+        />
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:id="@+id/updatebtn"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:src="@drawable/update"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+
+        />
+
+</RelativeLayout>

@@ -90,4 +90,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+    public void goForgot(View view){
+        Intent intent = new Intent(getApplicationContext(), forgot_password.class);
+        startActivity(intent);
+    }
+
 }

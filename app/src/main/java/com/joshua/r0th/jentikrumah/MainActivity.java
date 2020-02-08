@@ -63,4 +63,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), contoh.class);
         startActivity(intent);
     }
+
 }
