@@ -1,71 +1,81 @@
 package com.joshua.r0th.jentikrumah.ui.pantauan;
 
 public class data_item {
-    String Adate;
-    String Btampunganrumah;
-    String Ctampunganluar;
-    String Dtampungandalam;
-    String Ejentikliuar;
-    String Fjentikdalam;
+    String Anama;
+    String Bdate;
+    String Ctampunganrumah;
+    String Dtampunganluar;
+    String Etampungandalam;
+    String Fjentikliuar;
+    String Gjentikdalam;
 
     public data_item(){
 
     }
 
-    public data_item(String adate, String btampunganrumah, String ctampunganluar, String dtampungandalam, String ejentikliuar, String fjentikdalam) {
-        Adate = adate;
-        Btampunganrumah = btampunganrumah;
-        Ctampunganluar = ctampunganluar;
-        Dtampungandalam = dtampungandalam;
-        Ejentikliuar = ejentikliuar;
-        Fjentikdalam = fjentikdalam;
+    public data_item(String anama,String bdate, String ctampunganrumah, String dtampunganluar, String etampungandalam, String fjentikliuar, String gjentikdalam) {
+        Anama = anama;
+        Bdate = bdate;
+        Ctampunganrumah = ctampunganrumah;
+        Dtampunganluar = dtampunganluar;
+        Etampungandalam = etampungandalam;
+        Fjentikliuar = fjentikliuar;
+        Gjentikdalam = gjentikdalam;
     }
 
-    public String getAdate() {
-        return Adate;
+    public String getAnama() {
+        return Anama;
     }
 
-    public void setAdate(String adate) {
-        Adate = adate;
+    public void setAnama(String anama) {
+        Anama = anama;
     }
 
-    public String getBtampunganrumah() {
-        return Btampunganrumah;
+    public String getBdate() {
+        return Bdate;
     }
 
-    public void setBtampunganrumah(String btampunganrumah) {
-        Btampunganrumah = btampunganrumah;
+    public void setBdate(String bdate) {
+        Bdate = bdate;
     }
 
-    public String getCtampunganluar() {
-        return Ctampunganluar;
+    public String getCtampunganrumah() {
+        return Ctampunganrumah;
     }
 
-    public void setCtampunganluar(String ctampunganluar) {
-        Ctampunganluar = ctampunganluar;
+    public void setCtampunganrumah(String ctampunganrumah) {
+        Ctampunganrumah = ctampunganrumah;
     }
 
-    public String getDtampungandalam() {
-        return Dtampungandalam;
+    public String getDtampunganluar() {
+        return Dtampunganluar;
     }
 
-    public void setDtampungandalam(String dtampungandalam) {
-        Dtampungandalam = dtampungandalam;
+    public void setDtampunganluar(String dtampunganluar) {
+        Dtampunganluar = dtampunganluar;
     }
 
-    public String getEjentikliuar() {
-        return Ejentikliuar;
+    public String getEtampungandalam() {
+        return Etampungandalam;
     }
 
-    public void setEjentikliuar(String ejentikliuar) {
-        Ejentikliuar = ejentikliuar;
+    public void setEtampungandalam(String etampungandalam) {
+        Etampungandalam = etampungandalam;
     }
 
-    public String getFjentikdalam() {
-        return Fjentikdalam;
+    public String getFjentikliuar() {
+        return Fjentikliuar;
     }
 
-    public void setFjentikdalam(String fjentikdalam) {
-        Fjentikdalam = fjentikdalam;
+    public void setFjentikliuar(String fjentikliuar) {
+        Fjentikliuar = fjentikliuar;
+    }
+
+    public String getGjentikdalam() {
+        return Gjentikdalam;
+    }
+
+    public void setGjentikdalam(String gjentikdalam) {
+        Gjentikdalam = gjentikdalam;
     }
 }

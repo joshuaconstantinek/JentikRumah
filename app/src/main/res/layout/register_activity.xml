@@ -79,6 +79,17 @@
                 android:id="@+id/alamat1"
                 android:background="@drawable/roundtext"/>
 
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tipe Login" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tipeLogin"
+                android:background="@drawable/roundtext"/>
 
 
 

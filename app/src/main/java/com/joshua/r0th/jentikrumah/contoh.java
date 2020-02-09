@@ -21,6 +21,7 @@ public class contoh extends AppCompatActivity {
     TextView Email;
     TextView Notelp;
     TextView alamatrumah;
+    TextView tipelogin1;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userId;
@@ -33,6 +34,7 @@ public class contoh extends AppCompatActivity {
         Email = findViewById(R.id.email);
         Notelp = findViewById(R.id.notelp);
         alamatrumah = findViewById(R.id.Alamat);
+        tipelogin1 = findViewById(R.id.tipelogin);
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
@@ -45,6 +47,7 @@ public class contoh extends AppCompatActivity {
                 Email.setText(documentSnapshot.getString("Email"));
                 Notelp.setText(documentSnapshot.getString("Telepon"));
                 alamatrumah.setText(documentSnapshot.getString("Alamat"));
+                tipelogin1.setText(documentSnapshot.getString("Tipe"));
             }
         });
     }

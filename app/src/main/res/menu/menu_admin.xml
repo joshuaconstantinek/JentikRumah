@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/beranda"
+            android:title="@string/beranda" />
+
+    </group>
+
+    <item android:title="Lainnya">
+        <menu>
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/tentang"
+                android:title="@string/Tentang" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/keluar"
+                android:title="@string/Keluar" />
+        </menu>
+    </item>
+
+</menu>

@@ -35,7 +35,9 @@
                 android:id="@+id/namauser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@" />
+                android:text="nama"
+                android:textStyle="bold"
+                android:textAllCaps="true"/>
 
 
             <TextView
@@ -44,12 +46,6 @@
                 android:layout_height="wrap_content"
                 android:text="Tanggal input" />
 
-            <TextClock
-                android:id="@+id/textClock1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textColor="#17d409" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -122,22 +118,13 @@
                     android:id="@+id/tambahdata"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
+                    android:layout_margin="17dp"
                     android:background="#d67601"
                     android:text="Tambah Data"
                     android:textColor="#fff"
                     android:textSize="18sp" />
 
-                <Button
-                    android:id="@+id/lihatdata"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:background="#d67601"
-                    android:text="contoh lihat data"
-                    android:textAllCaps="false"
-                    android:textColor="#fff"
-                    android:textSize="18sp" />
+
             </LinearLayout>
         </LinearLayout>
 

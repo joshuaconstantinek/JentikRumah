@@ -28,7 +28,7 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
     public static final String TAG = "TAG";
-    EditText username,email,password,notelp,alamat1;
+    EditText username,email,password,notelp,alamat1,tipelogin;
     Button daftar;
     Button Login;
     FirebaseAuth fAuth;
@@ -46,6 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
         alamat1 = findViewById(R.id.alamat1);
         Login = findViewById(R.id.backtologin);
         daftar = findViewById(R.id.daftar);
+        tipelogin = findViewById(R.id.tipeLogin);
         fAuth = FirebaseAuth.getInstance();
         String username1 = username.getText().toString();
         String email1 = email.getText().toString();
@@ -87,6 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
                             user.put("Email",email.getText().toString());
                             user.put("Telepon",notelp.getText().toString());
                             user.put("Alamat",alamat1.getText().toString());
+                            user.put("Tipe",tipelogin.getText().toString());
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {

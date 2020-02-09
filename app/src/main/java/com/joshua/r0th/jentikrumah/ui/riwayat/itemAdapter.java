@@ -33,9 +33,13 @@ public class itemAdapter extends RecyclerView.Adapter<itemAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull itemAdapter.ViewHolder holder, int position) {
     final data_item item = items.get(position);
-    holder.rvtanggal.setText(item.getAdate());
-    holder.rvnama.setText(item.getBtampunganrumah());
-
+    holder.rvtanggal.setText(item.getBdate());
+    holder.rvnama.setText(item.getAnama());
+    holder.rvtmpgrmh.setText(item.getCtampunganrumah());
+    holder.rvtmgluar.setText(item.getDtampunganluar());
+    holder.rvtmpgdlm.setText(item.getEtampungandalam());
+    holder.jntkluar.setText(item.getFjentikliuar());
+    holder.jntkdlm.setText(item.getGjentikdalam());
     }
 
     @Override
@@ -44,12 +48,16 @@ public class itemAdapter extends RecyclerView.Adapter<itemAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView rvtanggal,rvnama;
+        private TextView rvtanggal,rvnama,rvtmpgrmh,rvtmgluar,rvtmpgdlm,jntkluar,jntkdlm;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            rvnama = itemView.findViewById(R.id.tanggal);
-            rvtanggal = itemView.findViewById(R.id.namainput);
-
+            rvnama = itemView.findViewById(R.id.nama);
+            rvtanggal = itemView.findViewById(R.id.tanggal);
+            rvtmpgrmh = itemView.findViewById(R.id.tmpunganrumah);
+            rvtmgluar = itemView.findViewById(R.id.tmpunganluarrumah);
+            rvtmpgdlm = itemView.findViewById(R.id.tmpungandalamrumah);
+            jntkluar = itemView.findViewById(R.id.jentikluar);
+            jntkdlm = itemView.findViewById(R.id.jentikdalam);
 
         }
     }

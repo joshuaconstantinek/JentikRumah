@@ -3,9 +3,9 @@
 
     android:layout_width="match_parent"
 
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
 
-    android:background="@drawable/list_selector"
+android:layout_marginTop="10dp"
 
     android:orientation="vertical"
 
@@ -33,13 +33,13 @@
 
                 android:layout_marginRight="2dp"
 
-                android:text="Name: "
+                android:text="Nama Penginput"
 
                 android:textColor="#000" />
 
             <TextView
 
-                android:id="@+id/lr_fullName"
+                android:id="@+id/nama"
 
                 android:layout_width="wrap_content"
 
@@ -96,7 +96,6 @@
 
                 android:textStyle="bold" />
         </TableRow>
-
         <TableRow
 
             android:layout_width="fill_parent"
@@ -111,13 +110,13 @@
 
                 android:layout_marginRight="2dp"
 
-                android:text="Mobile: "
+                android:text="Tampungan Rumah :"
 
                 android:textColor="#000" />
 
             <TextView
 
-                android:id="@+id/lr_mobile"
+                android:id="@+id/tmpunganrumah"
 
                 android:layout_width="wrap_content"
 
@@ -127,13 +126,91 @@
 
                 android:layout_weight="1"
 
-                android:text="Mobile"
+                android:text="tmpunganrumah"
 
                 android:textColor="#0000dd"
 
                 android:textSize="15dip"
 
-                android:textStyle="bold" />
+                />
+
+        </TableRow>
+        <TableRow
+
+            android:layout_width="fill_parent"
+
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="2dp"
+
+                android:text="Tampungan Luar Rumah :"
+
+                android:textColor="#000" />
+
+            <TextView
+
+                android:id="@+id/tmpunganluarrumah"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="10dp"
+
+                android:layout_weight="1"
+
+                android:text="tmpunganluarrumah"
+
+                android:textColor="#0000dd"
+
+                android:textSize="15dip"
+
+                />
+
+        </TableRow>
+        <TableRow
+
+            android:layout_width="fill_parent"
+
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="2dp"
+
+                android:text="Tampungan Dalam Rumah :"
+
+                android:textColor="#000" />
+
+            <TextView
+
+                android:id="@+id/tmpungandalamrumah"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="10dp"
+
+                android:layout_weight="1"
+
+                android:text="tmpungandalamrumah"
+
+                android:textColor="#0000dd"
+
+                android:textSize="15dip"
+
+               />
 
         </TableRow>
 
@@ -151,13 +228,13 @@
 
                 android:layout_marginRight="2dp"
 
-                android:text="Email: "
+                android:text="Jentik Luar Rumah :"
 
                 android:textColor="#000" />
 
             <TextView
 
-                android:id="@+id/lr_email"
+                android:id="@+id/jentikluar"
 
                 android:layout_width="wrap_content"
 
@@ -167,7 +244,7 @@
 
                 android:layout_weight="1"
 
-                android:text="Email"
+                android:text="jentikluar"
 
                 android:textColor="#0000dd"
 
@@ -189,13 +266,13 @@
 
                 android:layout_marginRight="2dp"
 
-                android:text="Description: "
+                android:text="Jentik Dalam Rumah :"
 
                 android:textColor="#000" />
 
             <TextView
 
-                android:id="@+id/lr_descriptin"
+                android:id="@+id/jentikdalam"
 
                 android:layout_width="wrap_content"
 
@@ -205,7 +282,7 @@
 
                 android:layout_weight="1"
 
-                android:text="description"
+                android:text="jentikdalam"
 
                 android:textColor="#0000dd"
 
@@ -221,18 +298,18 @@
 
         android:id="@+id/lr_deleteBtn"
         android:layout_width="50dip"
-        android:layout_height="50dip"
-        android:src="@drawable/delete"
+        android:layout_height="70dip"
+
         android:layout_alignParentRight="true"
         android:clickable="true"
 
         />
     <ImageView
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:id="@+id/updatebtn"
         android:layout_width="50dip"
-        android:layout_height="50dip"
-        android:src="@drawable/update"
+        android:layout_height="70dip"
+
         android:layout_alignParentRight="true"
         android:clickable="true"
 

@@ -10,12 +10,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.joshua.r0th.jentikrumah.R;
 
 import java.text.SimpleDateFormat;
@@ -28,6 +35,9 @@ TextView date,namauser,setnamauser;
 Button addData;
 FirebaseDatabase database;
 DatabaseReference myRef;
+FirebaseAuth fAuth;
+FirebaseFirestore fStore;
+String userId;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -45,7 +55,16 @@ DatabaseReference myRef;
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         String formattedDate = df.format(c);
         date.setText(formattedDate);
-
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userId = fAuth.getCurrentUser().getUid();
+        DocumentReference documentReference = fStore.collection("users").document(userId);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                namauser.setText(documentSnapshot.getString("Username"));
+            }
+        });
        //  = FirebaseDatabase.getInstance();
        //  = database.getReference("message");
 
@@ -53,6 +72,7 @@ DatabaseReference myRef;
         insertData();
         return root;
     }
+
     public void insertData(){
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Data");
@@ -60,6 +80,7 @@ DatabaseReference myRef;
         addData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                 String nama = namauser.getText().toString();
                  String Date = date.getText().toString();
                  String tmpRumah= tmpnganrumah.getText().toString();
                  String tmpLuar= tmpunganluar.getText().toString();
@@ -70,11 +91,16 @@ DatabaseReference myRef;
                 long mDateTime = 9999999999999L -System.currentTimeMillis();
                 String mOrderTime = String.valueOf(mDateTime);
 
-            data_item data_item1 = new data_item(Date,tmpRumah,tmpLuar,tmpDalam,JentikLuar,JentikDalam);
+            data_item data_item1 = new data_item(nama,Date,tmpRumah,tmpLuar,tmpDalam,JentikLuar,JentikDalam);
             myRef.child(mOrderTime).setValue(data_item1).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
                     Toast.makeText(getContext(),"Berhasil menambah Data Pantauan",Toast.LENGTH_SHORT).show();
+                    tmpnganrumah.setText("");
+                    tmpunganluar.setText("");
+                    tmpungandalam.setText("");
+                    jentikluar.setText("");
+                    jentikdalam.setText("");
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
