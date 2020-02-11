@@ -3,6 +3,7 @@ package com.joshua.r0th.jentikrumah;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -25,7 +26,7 @@ public class contoh extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userId;
-
+    Button buttoncontoh;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +38,7 @@ public class contoh extends AppCompatActivity {
         tipelogin1 = findViewById(R.id.tipelogin);
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-
+        buttoncontoh = findViewById(R.id.buttoncontohverif);
         userId = fAuth.getCurrentUser().getUid();
         DocumentReference documentReference = fStore.collection("users").document(userId);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -48,6 +49,12 @@ public class contoh extends AppCompatActivity {
                 Notelp.setText(documentSnapshot.getString("Telepon"));
                 alamatrumah.setText(documentSnapshot.getString("Alamat"));
                 tipelogin1.setText(documentSnapshot.getString("Tipe"));
+            }
+        });
+        buttoncontoh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), verif_ktp_user.class));
             }
         });
     }

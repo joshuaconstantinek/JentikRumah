@@ -294,25 +294,5 @@ android:layout_marginTop="10dp"
 
     </TableLayout>
 
-    <ImageView
-
-        android:id="@+id/lr_deleteBtn"
-        android:layout_width="50dip"
-        android:layout_height="70dip"
-
-        android:layout_alignParentRight="true"
-        android:clickable="true"
-
-        />
-    <ImageView
-        android:layout_marginTop="70dp"
-        android:id="@+id/updatebtn"
-        android:layout_width="50dip"
-        android:layout_height="70dip"
-
-        android:layout_alignParentRight="true"
-        android:clickable="true"
-
-        />
 
 </RelativeLayout>

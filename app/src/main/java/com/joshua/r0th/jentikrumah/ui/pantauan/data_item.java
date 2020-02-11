@@ -28,7 +28,7 @@ public class data_item {
     }
 
     public void setAnama(String anama) {
-        Anama = anama;
+        this.Anama = anama;
     }
 
     public String getBdate() {
@@ -36,7 +36,7 @@ public class data_item {
     }
 
     public void setBdate(String bdate) {
-        Bdate = bdate;
+        this.Bdate = bdate;
     }
 
     public String getCtampunganrumah() {
@@ -44,7 +44,7 @@ public class data_item {
     }
 
     public void setCtampunganrumah(String ctampunganrumah) {
-        Ctampunganrumah = ctampunganrumah;
+        this.Ctampunganrumah = ctampunganrumah;
     }
 
     public String getDtampunganluar() {
@@ -52,7 +52,7 @@ public class data_item {
     }
 
     public void setDtampunganluar(String dtampunganluar) {
-        Dtampunganluar = dtampunganluar;
+        this.Dtampunganluar = dtampunganluar;
     }
 
     public String getEtampungandalam() {
@@ -60,7 +60,7 @@ public class data_item {
     }
 
     public void setEtampungandalam(String etampungandalam) {
-        Etampungandalam = etampungandalam;
+        this.Etampungandalam = etampungandalam;
     }
 
     public String getFjentikliuar() {
@@ -68,7 +68,7 @@ public class data_item {
     }
 
     public void setFjentikliuar(String fjentikliuar) {
-        Fjentikliuar = fjentikliuar;
+        this.Fjentikliuar = fjentikliuar;
     }
 
     public String getGjentikdalam() {
@@ -77,5 +77,25 @@ public class data_item {
 
     public void setGjentikdalam(String gjentikdalam) {
         Gjentikdalam = gjentikdalam;
+    }
+
+    public int setCtampunganrumah() {
+        return 0;
+    }
+
+    public int setDtampunganluar() {
+        return 0;
+    }
+
+    public int setEtampungandalam() {
+    return 0;
+    }
+
+    public int setFjentikliuar() {
+        return 0;
+    }
+
+    public int setGjentikdalam() {
+        return 0;
     }
 }

@@ -105,15 +105,16 @@
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18sp" />
+
             <Button
-                android:background="#d67601"
+                android:id="@+id/backtologin"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15sp"
                 android:layout_gravity="center"
-                android:textColor="#fff"
-                android:id="@+id/backtologin"
-                android:text="Kemabil Ke Halaman Login"/>
+                android:layout_margin="15sp"
+                android:background="#d67601"
+                android:text="Kembali Ke Halaman Login"
+                android:textColor="#fff" />
         </LinearLayout>
 
     </RelativeLayout>

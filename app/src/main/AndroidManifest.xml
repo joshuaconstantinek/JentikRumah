@@ -41,6 +41,9 @@
         <activity android:name=".forgot_password"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".verif_ktp_user"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
