@@ -1,8 +1,11 @@
 package com.joshua.r0th.jentikrumah.ui.verifikasi;
 
+import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,43 +14,55 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.joshua.r0th.jentikrumah.R;
+import com.joshua.r0th.jentikrumah.Upload_verif;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
-public class data_adapter extends FirestoreRecyclerAdapter<data_model_verifikasi, data_adapter.dataholder> {
-    /**
-     * Create a new RecyclerView adapter that listens to a Firestore Query.  See {@link
-     * FirestoreRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
-    public data_adapter(@NonNull FirestoreRecyclerOptions<data_model_verifikasi> options) {
-        super(options);
+import java.util.List;
 
-    }
+public class data_adapter extends RecyclerView.Adapter<data_adapter.ImageViewHolder> {
+private Context mContext;
+private List<Upload_verif> mUpload;
 
-    @Override
-    protected void onBindViewHolder(@NonNull dataholder dataholder, int i, @NonNull data_model_verifikasi data_model_verifikasi) {
-        dataholder.nama.setText(data_model_verifikasi.getNama());
-        dataholder.status.setText(data_model_verifikasi.getStatus());
-    }
+public data_adapter(Context context, List<Upload_verif> Uploads){
+    mContext = context;
+    mUpload = Uploads;
 
+}
     @NonNull
     @Override
-    public dataholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.data_item_verifikasi, parent, false);
-        return new dataholder(v);
+    public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(mContext).inflate(R.layout.display_data_verif, parent, false);
 
+
+        return new ImageViewHolder(v);
     }
 
-    class dataholder extends RecyclerView.ViewHolder{
-            TextView nama,status;
-            public dataholder(@NonNull View itemView) {
-                super(itemView);
-                nama = itemView.findViewById(R.id.namauserverif);
-                status = itemView.findViewById(R.id.status_user);
-            }
+    @Override
+    public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
+    Upload_verif uploadCurrent = mUpload.get(position);
+    holder.txtnama.setText(uploadCurrent.getmName());
+        Picasso.get().load(uploadCurrent.getmImageurl()).fit().centerCrop().into(holder.img);
+    }
+
+    @Override
+    public int getItemCount() {
+        return mUpload.size();
+    }
+
+    public class ImageViewHolder extends RecyclerView.ViewHolder{
+        public TextView txtnama;
+        public ImageView img;
+
+        public ImageViewHolder(@NonNull View itemView) {
+            super(itemView);
+            img = itemView.findViewById(R.id.data_verif_img);
+            txtnama = itemView.findViewById(R.id.nama_verif);
+
         }
+    }
+
 
 
 }

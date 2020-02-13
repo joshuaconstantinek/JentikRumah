@@ -232,6 +232,7 @@
                 android:gravity="right"
                 android:padding="16dp" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -268,13 +269,15 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#dad8d8" />
+        <Button
+            android:id="@+id/buttoncontohverif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verifikasi Identitas"
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/buttoncontohverif"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+
 
 </RelativeLayout>

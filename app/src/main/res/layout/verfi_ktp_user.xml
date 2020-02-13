@@ -45,20 +45,27 @@
                 android:text="nama"
                 android:background="@drawable/roundtext"/>
 
-            <TextView
 
+
+
+        <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Pilih foto KTP "
+        android:id="@+id/ktp_img"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:background="#020517"
+            android:textAllCaps="false"
+            android:layout_margin="15dp"
+            android:layout_gravity="center"/>
+
+
+            <ProgressBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="data" />
-
-            <EditText
-                android:id="@+id/verifcontoh"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundtext" />
-
-
-
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:id="@+id/progressbar"/>
             <Button
                 android:id="@+id/btnsendverifuser"
                 android:layout_width="fill_parent"
@@ -69,9 +76,16 @@
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18sp" />
-        </LinearLayout>
-    </RelativeLayout>
 
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="450dp"
+        android:layout_height="200dp"
+        android:id="@+id/imageLoad"
+        android:layout_marginTop="500dp"/>
     <ImageButton
         android:id="@+id/user_profile_photo"
         android:layout_width="100dp"

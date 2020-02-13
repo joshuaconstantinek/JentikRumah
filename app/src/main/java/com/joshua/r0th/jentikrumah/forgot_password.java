@@ -33,7 +33,7 @@ public class forgot_password extends AppCompatActivity {
             inputEmail = (EditText) findViewById(R.id.emailforgot);
 
             btnReset = (Button) findViewById(R.id.btnforgot);
-
+            btnBack = findViewById(R.id.backtologinforgot);
 
             auth = FirebaseAuth.getInstance();
 
@@ -66,6 +66,12 @@ public class forgot_password extends AppCompatActivity {
 
                                 }
                             });
+                }
+            });
+            btnBack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                 }
             });
         }

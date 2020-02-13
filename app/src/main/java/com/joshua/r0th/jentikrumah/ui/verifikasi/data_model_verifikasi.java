@@ -9,16 +9,16 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 public class data_model_verifikasi extends RecyclerView.Adapter {
     String nama;
-    String status;
+    String data;
 
 
     public data_model_verifikasi(FirestoreRecyclerOptions<data_model_verifikasi> options){
 
     }
 
-    public data_model_verifikasi(String Username, String status) {
-        this.nama = Username;
-        this.status = status;
+    public data_model_verifikasi(String nama, String data) {
+        this.nama = nama;
+        this.data = data;
     }
 
     public String getNama() {
@@ -29,12 +29,12 @@ public class data_model_verifikasi extends RecyclerView.Adapter {
         this.nama = nama;
     }
 
-    public String getStatus() {
-        return status;
+    public String getData() {
+        return data;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setData(String data) {
+        this.data = data;
     }
 
     @NonNull
