@@ -43,7 +43,7 @@ public data_adapter(Context context, List<Upload_verif> Uploads){
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
     Upload_verif uploadCurrent = mUpload.get(position);
     holder.txtnama.setText(uploadCurrent.getmName());
-        Picasso.get().load(uploadCurrent.getmImageurl()).fit().centerCrop().into(holder.img);
+        Picasso.get().load(uploadCurrent.getmImageurl()).resize(250, 250).into(holder.img);
     }
 
     @Override

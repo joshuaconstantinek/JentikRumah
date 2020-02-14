@@ -37,6 +37,8 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import java.util.HashMap;
+
 public class verif_ktp_user extends AppCompatActivity {
     private static final int PICK_IMAGE=1;
     FirebaseAuth fAuth;
@@ -125,17 +127,8 @@ public class verif_ktp_user extends AppCompatActivity {
     }
     private void UploadFile(){
         if (mImageUri != null){
-            StorageReference fileref = mStorageref.child(System.currentTimeMillis() + "." + getfileextension(mImageUri));
-            mUploadTask =  fileref.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-                    final String downloadUrl = uri.toString();
-
-                    Upload_verif upload = new Upload_verif(nama.getText().toString().trim(), downloadUrl);
-                    String UploadId = myRef.push().getKey();
-                    myRef.child(UploadId).setValue(upload);
-                }
-
+            final StorageReference fileref = mStorageref.child(System.currentTimeMillis() + "." + getfileextension(mImageUri));
+            mUploadTask =  fileref.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
@@ -147,9 +140,22 @@ public class verif_ktp_user extends AppCompatActivity {
                         }
                     },500);
                     Toast.makeText(getApplicationContext(),"Upload Berhasil ! ",Toast.LENGTH_LONG).show();
-                    Upload_verif upload = new Upload_verif(nama.getText().toString().trim(), taskSnapshot.getStorage().getDownloadUrl().toString());
+                    fileref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Upload_verif upload = new Upload_verif(nama.getText().toString().trim(),uri.toString());
+                            String UploadId = myRef.push().getKey();
+                            myRef.child(UploadId).setValue(upload).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getApplicationContext(),"Upload Gagal, Cek koneksi anda !",Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    });
+                    Upload_verif upload = new Upload_verif(nama.getText().toString().trim(), fileref.getDownloadUrl().toString());
                     String UploadId = myRef.push().getKey();
-                    myRef.child(UploadId).setValue(upload);
+
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
