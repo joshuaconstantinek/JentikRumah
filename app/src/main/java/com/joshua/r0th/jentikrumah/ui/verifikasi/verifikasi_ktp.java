@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,7 +34,7 @@ import com.joshua.r0th.jentikrumah.ui.riwayat.viewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class verifikasi_ktp extends Fragment {
+public class verifikasi_ktp extends Fragment implements data_adapter.OnItemClickListener {
 private FirebaseFirestore db = FirebaseFirestore.getInstance();
 private data_adapter madapter;
 
@@ -68,6 +69,8 @@ private data_adapter madapter;
             }
                 madapter = new data_adapter(getContext(),mUpload);
             recyclerView.setAdapter(madapter);
+
+            madapter.setOnItemClickListener(verifikasi_ktp.this);
             }
 
             @Override
@@ -78,4 +81,18 @@ private data_adapter madapter;
     return root;
     }
 
+    @Override
+    public void OnItemClick(int position) {
+        Toast.makeText(getContext(),"normalClick" + position,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void updateclick(int position) {
+        Toast.makeText(getContext(),"Update " + position,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void deletclick(int position) {
+        Toast.makeText(getContext(),"Delete " + position,Toast.LENGTH_SHORT).show();
+    }
 }

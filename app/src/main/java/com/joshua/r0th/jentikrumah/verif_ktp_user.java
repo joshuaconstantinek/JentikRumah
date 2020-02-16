@@ -44,7 +44,7 @@ public class verif_ktp_user extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userId;
-    TextView nama;
+    TextView nama,status;
     Button send;
     Button upload;
     ImageView imageView;
@@ -60,6 +60,7 @@ public class verif_ktp_user extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.verfi_ktp_user);
         nama = findViewById(R.id.namauserverifktp);
+        status = findViewById(R.id.status_user_verif);
         upload = findViewById(R.id.ktp_img);
         progressBar = findViewById(R.id.progressbar);
         send = findViewById(R.id.btnsendverifuser);
@@ -143,7 +144,7 @@ public class verif_ktp_user extends AppCompatActivity {
                     fileref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            Upload_verif upload = new Upload_verif(nama.getText().toString().trim(),uri.toString());
+                            Upload_verif upload = new Upload_verif(nama.getText().toString().trim(),status.getText().toString().trim(),uri.toString());
                             String UploadId = myRef.push().getKey();
                             myRef.child(UploadId).setValue(upload).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -153,9 +154,6 @@ public class verif_ktp_user extends AppCompatActivity {
                             });
                         }
                     });
-                    Upload_verif upload = new Upload_verif(nama.getText().toString().trim(), fileref.getDownloadUrl().toString());
-                    String UploadId = myRef.push().getKey();
-
 
                 }
             }).addOnFailureListener(new OnFailureListener() {

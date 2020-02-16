@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -19,12 +21,14 @@ import com.joshua.r0th.jentikrumah.ui.profile.ProfileFragment;
 
 public class contoh extends AppCompatActivity {
     TextView username;
+    TextView status;
     TextView Email;
     TextView Notelp;
     TextView alamatrumah;
     TextView tipelogin1;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
+    DatabaseReference myref;
     String userId;
     Button buttoncontoh;
     @Override
@@ -33,11 +37,14 @@ public class contoh extends AppCompatActivity {
         setContentView(R.layout.fragment_profile);
         username = findViewById(R.id.profile1);
         Email = findViewById(R.id.email);
+        status = findViewById(R.id.status_profile);
         Notelp = findViewById(R.id.notelp);
         alamatrumah = findViewById(R.id.Alamat);
+        myref = FirebaseDatabase.getInstance().getReference("data_verifikasi");
         tipelogin1 = findViewById(R.id.tipelogin);
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+       String username2 = username.getText().toString().trim();
         buttoncontoh = findViewById(R.id.buttoncontohverif);
         userId = fAuth.getCurrentUser().getUid();
         DocumentReference documentReference = fStore.collection("users").document(userId);
@@ -51,6 +58,7 @@ public class contoh extends AppCompatActivity {
                 tipelogin1.setText(documentSnapshot.getString("Tipe"));
             }
         });
+
         buttoncontoh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

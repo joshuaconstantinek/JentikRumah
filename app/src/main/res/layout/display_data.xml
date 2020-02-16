@@ -8,13 +8,13 @@
 android:layout_marginTop="10dp"
 
     android:orientation="vertical"
-
+    android:background="@drawable/gradient_display_data"
     android:padding="2dp">
 
     <TableLayout
 
         android:layout_width="fill_parent"
-
+        android:layout_marginLeft="20dp"
         android:padding="3dp"
 
         android:layout_height="wrap_content">
@@ -288,8 +288,6 @@ android:layout_marginTop="10dp"
 
                 android:textSize="15dp" />
         </TableRow>
-
-
 
 
     </TableLayout>

@@ -45,6 +45,18 @@
                 android:text="nama"
                 android:background="@drawable/roundtext"/>
 
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status" />
+
+            <TextView
+                android:id="@+id/status_user_verif"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Belum Terverifikasi"
+                android:background="@drawable/roundtext"/>
 
 
 
@@ -85,7 +97,7 @@
         android:layout_width="450dp"
         android:layout_height="200dp"
         android:id="@+id/imageLoad"
-        android:layout_marginTop="500dp"/>
+        android:layout_marginTop="550dp"/>
     <ImageButton
         android:id="@+id/user_profile_photo"
         android:layout_width="100dp"

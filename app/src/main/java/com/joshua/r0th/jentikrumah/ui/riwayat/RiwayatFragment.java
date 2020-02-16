@@ -79,6 +79,7 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
                 viewHolder.rvtmpgdlm.setText(data_item.getEtampungandalam());
                 viewHolder.jntkluar.setText(data_item.getFjentikliuar());
                 viewHolder.jntkdlm.setText(data_item.getGjentikdalam());
+
             }
 
             @NonNull
