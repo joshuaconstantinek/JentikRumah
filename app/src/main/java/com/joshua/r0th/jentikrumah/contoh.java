@@ -5,13 +5,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -29,6 +34,7 @@ public class contoh extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     DatabaseReference myref;
+    FirebaseDatabase mydatabase;
     String userId;
     Button buttoncontoh;
     @Override
@@ -41,10 +47,8 @@ public class contoh extends AppCompatActivity {
         Notelp = findViewById(R.id.notelp);
         alamatrumah = findViewById(R.id.Alamat);
         myref = FirebaseDatabase.getInstance().getReference("data_verifikasi");
-        tipelogin1 = findViewById(R.id.tipelogin);
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-       String username2 = username.getText().toString().trim();
         buttoncontoh = findViewById(R.id.buttoncontohverif);
         userId = fAuth.getCurrentUser().getUid();
         DocumentReference documentReference = fStore.collection("users").document(userId);
@@ -55,7 +59,7 @@ public class contoh extends AppCompatActivity {
                 Email.setText(documentSnapshot.getString("Email"));
                 Notelp.setText(documentSnapshot.getString("Telepon"));
                 alamatrumah.setText(documentSnapshot.getString("Alamat"));
-                tipelogin1.setText(documentSnapshot.getString("Tipe"));
+
             }
         });
 
@@ -65,7 +69,34 @@ public class contoh extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), verif_ktp_user.class));
             }
         });
-    }
+        Query query=myref.orderByChild("mName").equalTo(String.valueOf(username));
 
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot data:dataSnapshot.getChildren()){
+
+
+                    Upload_verif models=data.getValue(Upload_verif.class);
+                    Toast.makeText(getApplicationContext(),"normalClick" ,Toast.LENGTH_SHORT).show();
+                    status.setText(models.getMstatus().trim());
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        callname();
+    }
+    public void callname(){
+        String username2 = username.getText().toString().trim();
+        Toast.makeText(getApplicationContext(),"Nama anda" + username2 ,Toast.LENGTH_SHORT).show();
+    }
 
 }

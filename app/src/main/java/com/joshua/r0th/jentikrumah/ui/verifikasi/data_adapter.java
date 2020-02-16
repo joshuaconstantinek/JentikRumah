@@ -83,11 +83,11 @@ public data_adapter(Context context, List<Upload_verif> Uploads){
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.setHeaderTitle("Pilih Menu");
-            MenuItem Update = menu.add(Menu.NONE,1,1 , "Update");
-            MenuItem delete = menu.add(Menu.NONE,2,2, "Delete");
+            MenuItem Update = menu.add(Menu.NONE,1,1 , "Verifikasi");
+
 
             Update.setOnMenuItemClickListener(this);
-            delete.setOnMenuItemClickListener(this);
+
         }
 
         @Override
