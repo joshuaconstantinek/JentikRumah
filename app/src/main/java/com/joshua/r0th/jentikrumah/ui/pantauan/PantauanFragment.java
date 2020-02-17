@@ -87,27 +87,32 @@ String userId;
                  String tmpDalam= tmpungandalam.getText().toString();
                  String JentikLuar= jentikluar.getText().toString();
                  String JentikDalam= jentikdalam.getText().toString();
+
                  //TimeStap
                 long mDateTime = 9999999999999L -System.currentTimeMillis();
                 String mOrderTime = String.valueOf(mDateTime);
-
-            data_item data_item1 = new data_item(nama,Date,tmpRumah,tmpLuar,tmpDalam,JentikLuar,JentikDalam);
-            myRef.child(mOrderTime).setValue(data_item1).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    Toast.makeText(getContext(),"Berhasil menambah Data Pantauan",Toast.LENGTH_SHORT).show();
-                    tmpnganrumah.setText("");
-                    tmpunganluar.setText("");
-                    tmpungandalam.setText("");
-                    jentikluar.setText("");
-                    jentikdalam.setText("");
+                int contohaja = Integer.parseInt(tmpRumah);
+                if (contohaja > 99){
+                    Toast.makeText(getContext(),"data Lebih dari 99",Toast.LENGTH_SHORT).show();
+                }else {
+                    data_item data_item1 = new data_item(nama, Date, tmpRumah, tmpLuar, tmpDalam, JentikLuar, JentikDalam);
+                    myRef.child(mOrderTime).setValue(data_item1).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(getContext(), "Berhasil menambah Data Pantauan", Toast.LENGTH_SHORT).show();
+                            tmpnganrumah.setText("");
+                            tmpunganluar.setText("");
+                            tmpungandalam.setText("");
+                            jentikluar.setText("");
+                            jentikdalam.setText("");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getContext(), "Gagal menambah Data Pantauan", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(getContext(),"Gagal menambah Data Pantauan",Toast.LENGTH_SHORT).show();
-                }
-            });
             }
         });
     }
