@@ -264,7 +264,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:padding="16dp" />
+                android:padding="16dp"
+                android:text="Mohon Tunggu" />
         </LinearLayout>
         <View
             android:layout_width="match_parent"

@@ -34,7 +34,7 @@ showDialog();
 
     private void showDialog(){
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
 
         // set title dialog
         alertDialogBuilder.setTitle("Logout dari Aplikasi?");
@@ -55,8 +55,7 @@ showDialog();
                     public void onClick(DialogInterface dialog, int id) {
                         // jika tombol ini diklik, akan menutup dialog
                         // dan tidak terjadi apa2
-                        Intent intent = new Intent(getActivity(), MainActivity.class);
-                        startActivity(intent);
+                        dialog.dismiss();
                     }
                 });
 

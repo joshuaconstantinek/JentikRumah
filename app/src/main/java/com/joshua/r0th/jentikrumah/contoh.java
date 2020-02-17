@@ -51,6 +51,7 @@ public class contoh extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
         buttoncontoh = findViewById(R.id.buttoncontohverif);
         userId = fAuth.getCurrentUser().getUid();
+
         DocumentReference documentReference = fStore.collection("users").document(userId);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -59,6 +60,36 @@ public class contoh extends AppCompatActivity {
                 Email.setText(documentSnapshot.getString("Email"));
                 Notelp.setText(documentSnapshot.getString("Telepon"));
                 alamatrumah.setText(documentSnapshot.getString("Alamat"));
+                final String username2 = username.getText().toString().trim();
+
+
+                Query query=myref.orderByChild("mName").equalTo(username2);
+
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        for (DataSnapshot data:dataSnapshot.getChildren()){
+
+
+                            Upload_verif models=data.getValue(Upload_verif.class);
+                            status.setText(models.getMstatus().trim());
+                            final String status2 = status.getText().toString().trim();
+                            if (status2.equals("Belum Terverifikasi")){
+                                buttoncontoh.setVisibility(View.VISIBLE);
+                            }else{
+                                buttoncontoh.setVisibility(View.GONE);
+                            }
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
 
             }
         });
@@ -69,34 +100,8 @@ public class contoh extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), verif_ktp_user.class));
             }
         });
-        Query query=myref.orderByChild("mName").equalTo(String.valueOf(username));
-
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot data:dataSnapshot.getChildren()){
 
 
-                    Upload_verif models=data.getValue(Upload_verif.class);
-                    Toast.makeText(getApplicationContext(),"normalClick" ,Toast.LENGTH_SHORT).show();
-                    status.setText(models.getMstatus().trim());
-
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        callname();
-    }
-    public void callname(){
-        String username2 = username.getText().toString().trim();
-        Toast.makeText(getApplicationContext(),"Nama anda" + username2 ,Toast.LENGTH_SHORT).show();
     }
 
 }

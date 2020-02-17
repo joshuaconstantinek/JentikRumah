@@ -20,11 +20,6 @@
             android:icon="@drawable/riwayat"
             android:title="@string/riwayat"
             android:visible="true"/>
-        <item
-            android:id="@+id/nav_verif"
-            android:icon="@drawable/riwayat"
-            android:title="@string/riwayat"
-            android:visible="true"/>
     </group>
 
     <item android:title="Lainnya">

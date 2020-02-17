@@ -66,14 +66,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:onClick="goForgot"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="0"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
+                    android:onClick="goForgot"
                     android:text="Lupa Password?" />
                 <TextView
                     android:layout_marginRight="100dp"
@@ -82,16 +82,16 @@
 
                 <Button
                     android:id="@+id/buttonLogin"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="130dp"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_margin="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#d67601"
                     android:text="Masuk"
                     android:textAllCaps="false"
                     android:textColor="#fff"
-                    android:textSize="15sp"
-                    android:layout_marginBottom="10dp"/>
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <Button
