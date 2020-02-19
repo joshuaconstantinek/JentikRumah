@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -54,9 +55,18 @@ public class RegisterActivity extends AppCompatActivity {
         String notelp1 = notelp.getText().toString();
         String alamat2 = alamat1.getText().toString();
         fStore = FirebaseFirestore.getInstance();
-        if (fAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
+        FirebaseUser user = fAuth.getInstance().getCurrentUser();
+        if(user != null)
+        {
+            String email = user.getEmail();
+            if (email.equals("joshuaconstantine.k@gmail.com")){
+                Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+                startActivity(intent);
+            }else{
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+
         }
 
         daftar.setOnClickListener(new View.OnClickListener() {
@@ -100,7 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     Log.d(TAG, "onFailure: " + e.toString());
                                 }
                             });
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 
                         } else {
                             Toast.makeText(RegisterActivity.this, " BERHASIL MENDAFTAR"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();

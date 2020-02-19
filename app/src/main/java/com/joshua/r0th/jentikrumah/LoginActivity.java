@@ -11,30 +11,51 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class LoginActivity extends AppCompatActivity {
     EditText mEmail,mPassword;
     Button mLoginBtn;
     TextView mCreateBtn;
-
+    FirebaseFirestore fStore;
+    String userId;
     FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+        fAuth = FirebaseAuth.getInstance();
         mEmail = findViewById(R.id.editTextEmail);
         mPassword = findViewById(R.id.editTextPassword);
         fAuth = FirebaseAuth.getInstance();
         mLoginBtn = findViewById(R.id.buttonLogin);
         mCreateBtn = findViewById(R.id.daftarakun);
+        FirebaseUser user = fAuth.getInstance().getCurrentUser();
+        if(user != null)
+        {
+            String email = user.getEmail();
+            if (email.equals("joshuaconstantine.k@gmail.com")){
+                Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+                startActivity(intent);
+            }else{
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
 
+        }
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
