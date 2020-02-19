@@ -26,11 +26,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.joshua.r0th.jentikrumah.R;
 import com.joshua.r0th.jentikrumah.ui.pantauan.data_item;
 
@@ -39,10 +46,13 @@ import java.util.List;
 
 public class RiwayatFragment extends Fragment {
 private RecyclerView recyclerView;
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
 private itemAdapter adapter;
 private List<data_item> items;
 private DatabaseReference reference;
 private FirebaseDatabase database;
+    String userId;
 FirebaseRecyclerOptions<data_item> options;
 FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
 
@@ -58,53 +68,61 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
         recyclerView.setLayoutManager(layoutManager);
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("Data");
+
         setHasOptionsMenu(true);
         showtask();
                 return root;
     }
 
     public void showtask(){
-        options = new FirebaseRecyclerOptions.Builder<data_item>()
-                .setQuery(reference, data_item.class)
-                .build();
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userId = fAuth.getCurrentUser().getUid();
 
-        adapter2 = new FirebaseRecyclerAdapter<data_item, viewHolder>(options) {
+
+
+
+        DocumentReference documentReference = fStore.collection("users").document(userId);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
-            protected void onBindViewHolder(@NonNull viewHolder viewHolder, int i, @NonNull data_item data_item) {
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                String namasearch = documentSnapshot.getString("Username");
+                Query query = reference.orderByChild("anama").equalTo(namasearch);
+                options = new FirebaseRecyclerOptions.Builder<data_item>()
+                        .setQuery(query, data_item.class)
+                        .build();
 
-                viewHolder.rvnama.setText(data_item.getAnama());
-                viewHolder.rvtanggal.setText(data_item.getBdate());
-                viewHolder.rvtmpgrmh.setText(data_item.getCtampunganrumah());
-                viewHolder.rvtmgluar.setText(data_item.getDtampunganluar());
-                viewHolder.rvtmpgdlm.setText(data_item.getEtampungandalam());
-                viewHolder.jntkluar.setText(data_item.getFjentikliuar());
-                viewHolder.jntkdlm.setText(data_item.getGjentikdalam());
+                adapter2 = new FirebaseRecyclerAdapter<data_item, viewHolder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull viewHolder viewHolder, int i, @NonNull data_item data_item) {
 
+                        viewHolder.rvnama.setText(data_item.getAnama());
+                        viewHolder.rvtanggal.setText(data_item.getBdate());
+                        viewHolder.rvtmpgrmh.setText(data_item.getCtampunganrumah());
+                        viewHolder.rvtmgluar.setText(data_item.getDtampunganluar());
+                        viewHolder.rvtmpgdlm.setText(data_item.getEtampungandalam());
+                        viewHolder.jntkluar.setText(data_item.getFjentikliuar());
+                        viewHolder.jntkdlm.setText(data_item.getGjentikdalam());
+
+                    }
+
+                    @NonNull
+                    @Override
+                    public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                        View itemview = LayoutInflater.from(parent.getContext())
+                                .inflate(R.layout.display_data, parent, false);
+                        return new viewHolder(itemview);
+                    }
+                };
+                adapter2.startListening();
+                recyclerView.setAdapter(adapter2);
+                adapter2.notifyDataSetChanged();
             }
 
-            @NonNull
-            @Override
-            public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View itemview = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.display_data, parent, false);
-                return new viewHolder(itemview);
-            }
-        };
-        recyclerView.setAdapter(adapter2);
-        adapter2.notifyDataSetChanged();
+        });
+
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        adapter2.startListening();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        adapter2.stopListening();
-    }
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {

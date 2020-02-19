@@ -29,7 +29,11 @@
         android:name="com.joshua.r0th.jentikrumah.ui.riwayat.RiwayatFragment"
         android:label="@string/riwayat"
         tools:layout="@layout/fragment_riwayat" />
-
+    <fragment
+        android:id="@+id/nav_riwayatAdmin"
+        android:name="com.joshua.r0th.jentikrumah.ui.riwayat.RiwayatFragmentAdmin"
+        android:label="@string/riwayat"
+        tools:layout="@layout/fragment_riwayat" />
     <fragment
         android:id="@+id/nav_about"
         android:name="com.joshua.r0th.jentikrumah.ui.about.AboutFragment"

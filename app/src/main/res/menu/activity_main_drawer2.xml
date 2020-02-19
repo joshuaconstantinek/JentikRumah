@@ -10,7 +10,7 @@
             android:title="@string/beranda" />
 
         <item
-            android:id="@+id/nav_riwayat"
+            android:id="@+id/nav_riwayatAdmin"
             android:icon="@drawable/riwayat"
             android:title="@string/riwayat"
             android:visible="true"/>
