@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         mLoginBtn = findViewById(R.id.buttonLogin);
         mCreateBtn = findViewById(R.id.daftarakun);
         FirebaseUser user = fAuth.getInstance().getCurrentUser();
+
         if(user != null)
         {
             String email = user.getEmail();
