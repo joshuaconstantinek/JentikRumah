@@ -98,12 +98,11 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
 
                         viewHolder.rvnama.setText(data_item.getAnama());
                         viewHolder.rvtanggal.setText(data_item.getBdate());
-                        viewHolder.rvtmpgrmh.setText(data_item.getCtampunganrumah());
-                        viewHolder.rvtmgluar.setText(data_item.getDtampunganluar());
-                        viewHolder.rvtmpgdlm.setText(data_item.getEtampungandalam());
-                        viewHolder.jntkluar.setText(data_item.getFjentikliuar());
-                        viewHolder.jntkdlm.setText(data_item.getGjentikdalam());
-
+                        viewHolder.rvtmgluar.setText(data_item.getCtampunganluar());
+                        viewHolder.rvtmpgdlm.setText(data_item.getDtampungandalam());
+                        viewHolder.jntkluar.setText(data_item.getEjentikliuar());
+                        viewHolder.jntkdlm.setText(data_item.getFjentikdalam());
+                        viewHolder.rvtotal.setText(Integer.toString(data_item.getGtotal_satu()));
                     }
 
                     @NonNull
@@ -150,19 +149,19 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
         View updateLayout = LayoutInflater.from(getContext()).inflate(R.layout.custom_layout, null);
         final TextView namauser = updateLayout.findViewById(R.id.namauser);
         final TextView tanggal = updateLayout.findViewById(R.id.Adate);
-        final EditText edit_tmpgrmh = updateLayout.findViewById(R.id.edit_Btampunganrumah);
         final EditText edit_tmpgrmhluar = updateLayout.findViewById(R.id.edit_Ctampunaganluar);
         final EditText edit_tmpgrmhdlm = updateLayout.findViewById(R.id.edit_Dtampungandalam);
         final EditText edit_jntikLuar = updateLayout.findViewById(R.id.edit_Ejentikluar);
         final EditText edit_jntikDalam = updateLayout.findViewById(R.id.edit_Fjentikdalam);
+        final TextView total_satu_input = updateLayout.findViewById(R.id.totaljentikEdit);
 
         namauser.setText(item.getAnama());
         tanggal.setText(item.getBdate());
-        edit_tmpgrmh.setText(item.getCtampunganrumah());
-        edit_tmpgrmhluar.setText(item.getDtampunganluar());
-        edit_tmpgrmhdlm.setText(item.getEtampungandalam());
-        edit_jntikLuar.setText(item.getFjentikliuar());
-        edit_jntikDalam.setText(item.getGjentikdalam());
+        edit_tmpgrmhluar.setText(item.getCtampunganluar());
+        edit_tmpgrmhdlm.setText(item.getDtampungandalam());
+        edit_jntikLuar.setText(item.getEjentikliuar());
+        edit_jntikDalam.setText(item.getFjentikdalam());
+        total_satu_input.setText(item.getGtotal_satu());
 
         builder.setView(updateLayout);
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -170,13 +169,15 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
             public void onClick(DialogInterface dialog, int which) {
                 String nm = namauser.getText().toString();
                 String tnggl = tanggal.getText().toString();
-                String tpg_rmh = edit_tmpgrmh.getText().toString();
                 String tpg_luar = edit_tmpgrmhluar.getText().toString();
                 String tpg_dlm = edit_tmpgrmhdlm.getText().toString();
                 String jntk_luar = edit_jntikLuar.getText().toString();
                 String jntk_dalam = edit_jntikDalam.getText().toString();
+                int jumlahjntkluar = Integer.parseInt(jntk_luar);
+                int jumlahjntkdlm = Integer.parseInt(jntk_dalam);
+                int total_satu_input2 = jumlahjntkluar + jumlahjntkdlm;
 
-               data_item daitem3 = new data_item(nm,tnggl,tpg_rmh,tpg_luar,tpg_dlm,jntk_luar,jntk_dalam);
+               data_item daitem3 = new data_item(nm,tnggl,tpg_luar,tpg_dlm,jntk_luar,jntk_dalam,total_satu_input2);
                reference.child(key).setValue(daitem3);
             }
         });

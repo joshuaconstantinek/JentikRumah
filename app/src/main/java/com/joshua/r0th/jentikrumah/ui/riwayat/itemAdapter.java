@@ -1,25 +1,18 @@
 package com.joshua.r0th.jentikrumah.ui.riwayat;
 
 import android.content.Context;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.model.DatabaseId;
 import com.joshua.r0th.jentikrumah.R;
 import com.joshua.r0th.jentikrumah.ui.pantauan.data_item;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class itemAdapter extends RecyclerView.Adapter<itemAdapter.ViewHolder> {
@@ -49,12 +42,11 @@ public class itemAdapter extends RecyclerView.Adapter<itemAdapter.ViewHolder> {
     final data_item item = items.get(position);
     holder.rvtanggal.setText(item.getBdate());
     holder.rvnama.setText(item.getAnama());
-    holder.rvtmpgrmh.setText(item.getCtampunganrumah());
-    holder.rvtmgluar.setText(item.getDtampunganluar());
-    holder.rvtmpgdlm.setText(item.getEtampungandalam());
-    holder.jntkluar.setText(item.getFjentikliuar());
-    holder.jntkdlm.setText(item.getGjentikdalam());
-
+    holder.rvtmgluar.setText(item.getCtampunganluar());
+    holder.rvtmpgdlm.setText(item.getDtampungandalam());
+    holder.jntkluar.setText(item.getEjentikliuar());
+    holder.jntkdlm.setText(item.getFjentikdalam());
+    holder.rvtotaljentik.setText(item.getGtotal_satu());
     }
 
     @Override
@@ -65,17 +57,17 @@ public class itemAdapter extends RecyclerView.Adapter<itemAdapter.ViewHolder> {
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView rvtanggal,rvnama,rvtmpgrmh,rvtmgluar,rvtmpgdlm,jntkluar,jntkdlm;
+        private TextView rvtanggal,rvnama,rvtotaljentik,rvtmgluar,rvtmpgdlm,jntkluar,jntkdlm;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             rvnama = itemView.findViewById(R.id.nama);
             rvtanggal = itemView.findViewById(R.id.tanggal);
-            rvtmpgrmh = itemView.findViewById(R.id.tmpunganrumah);
             rvtmgluar = itemView.findViewById(R.id.tmpunganluarrumah);
             rvtmpgdlm = itemView.findViewById(R.id.tmpungandalamrumah);
             jntkluar = itemView.findViewById(R.id.jentikluar);
             jntkdlm = itemView.findViewById(R.id.jentikdalam);
+            rvtotaljentik = itemView.findViewById(R.id.totaljentik_tampil);
 
 
         }

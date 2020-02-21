@@ -1,6 +1,7 @@
 package com.joshua.r0th.jentikrumah.ui.home;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.joshua.r0th.jentikrumah.BaseBackPressedListener;
+import com.joshua.r0th.jentikrumah.MainActivity;
+import com.joshua.r0th.jentikrumah.OnBackPressed;
 import com.joshua.r0th.jentikrumah.R;
 
 import java.util.ArrayList;
@@ -35,6 +39,11 @@ public class HomeFragment extends Fragment {
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
         expandableListAdapter = new CustomExpandableListAdapter(getContext(), expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(expandableListAdapter);
+        expandableListView.expandGroup(0);
+
         return root;
     }
+    public void onBackPressed() {}
+
+
 }

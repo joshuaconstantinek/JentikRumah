@@ -3,24 +3,23 @@ package com.joshua.r0th.jentikrumah.ui.pantauan;
 public class data_item {
     String Anama;
     String Bdate;
-    String Ctampunganrumah;
-    String Dtampunganluar;
-    String Etampungandalam;
-    String Fjentikliuar;
-    String Gjentikdalam;
-
+    String Ctampunganluar;
+    String Dtampungandalam;
+    String Ejentikliuar;
+    String Fjentikdalam;
+    int Gtotal_satu;
     public data_item(){
 
     }
 
-    public data_item(String anama,String bdate, String ctampunganrumah, String dtampunganluar, String etampungandalam, String fjentikliuar, String gjentikdalam) {
+    public data_item(String anama,String bdate, String ctampunganluar, String dtampungandalam, String ejentikliuar, String fjentikdalam, int gtotal_satu) {
         Anama = anama;
         Bdate = bdate;
-        Ctampunganrumah = ctampunganrumah;
-        Dtampunganluar = dtampunganluar;
-        Etampungandalam = etampungandalam;
-        Fjentikliuar = fjentikliuar;
-        Gjentikdalam = gjentikdalam;
+        Ctampunganluar = ctampunganluar;
+        Dtampungandalam = dtampungandalam;
+        Ejentikliuar = ejentikliuar;
+        Fjentikdalam = fjentikdalam;
+        Gtotal_satu = gtotal_satu;
     }
 
     public String getAnama() {
@@ -39,63 +38,44 @@ public class data_item {
         this.Bdate = bdate;
     }
 
-    public String getCtampunganrumah() {
-        return Ctampunganrumah;
+
+    public String getCtampunganluar() {
+        return Ctampunganluar;
     }
 
-    public void setCtampunganrumah(String ctampunganrumah) {
-        this.Ctampunganrumah = ctampunganrumah;
+    public void setCtampunganluar(String ctampunganluar) {
+        Ctampunganluar = ctampunganluar;
     }
 
-    public String getDtampunganluar() {
-        return Dtampunganluar;
+    public String getDtampungandalam() {
+        return Dtampungandalam;
     }
 
-    public void setDtampunganluar(String dtampunganluar) {
-        this.Dtampunganluar = dtampunganluar;
+    public void setDtampungandalam(String dtampungandalam) {
+        Dtampungandalam = dtampungandalam;
     }
 
-    public String getEtampungandalam() {
-        return Etampungandalam;
+    public String getEjentikliuar() {
+        return Ejentikliuar;
     }
 
-    public void setEtampungandalam(String etampungandalam) {
-        this.Etampungandalam = etampungandalam;
+    public void setEjentikliuar(String ejentikliuar) {
+        Ejentikliuar = ejentikliuar;
     }
 
-    public String getFjentikliuar() {
-        return Fjentikliuar;
+    public String getFjentikdalam() {
+        return Fjentikdalam;
     }
 
-    public void setFjentikliuar(String fjentikliuar) {
-        this.Fjentikliuar = fjentikliuar;
+    public void setFjentikdalam(String fjentikdalam) {
+        Fjentikdalam = fjentikdalam;
     }
 
-    public String getGjentikdalam() {
-        return Gjentikdalam;
+    public int getGtotal_satu() {
+        return Gtotal_satu;
     }
 
-    public void setGjentikdalam(String gjentikdalam) {
-        Gjentikdalam = gjentikdalam;
-    }
-
-    public int setCtampunganrumah() {
-        return 0;
-    }
-
-    public int setDtampunganluar() {
-        return 0;
-    }
-
-    public int setEtampungandalam() {
-    return 0;
-    }
-
-    public int setFjentikliuar() {
-        return 0;
-    }
-
-    public int setGjentikdalam() {
-        return 0;
+    public void setGtotal_satu(int gtotal_satu) {
+        Gtotal_satu = gtotal_satu;
     }
 }

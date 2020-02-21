@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseFirestore fStore;
     String userId;
     private AppBarConfiguration mAppBarConfiguration;
-
+    protected OnBackPressed onBackPressedListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,4 +94,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void OnBackPressed(OnBackPressed onBackPressedListener) {
+        this.onBackPressedListener = onBackPressedListener;
+    }
+    @Override
+    public void onBackPressed() {
+        if (onBackPressedListener != null)
+            onBackPressedListener.doBack();
+        else
+            super.onBackPressed();
+    }
 }

@@ -122,5 +122,8 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), forgot_password.class);
         startActivity(intent);
     }
-
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 }

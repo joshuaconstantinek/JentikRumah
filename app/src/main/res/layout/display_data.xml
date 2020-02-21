@@ -96,45 +96,7 @@ android:layout_marginTop="10dp"
 
                 android:textStyle="bold" />
         </TableRow>
-        <TableRow
 
-            android:layout_width="fill_parent"
-
-            android:layout_height="wrap_content">
-
-            <TextView
-
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
-
-                android:layout_marginRight="2dp"
-
-                android:text="Tampungan Rumah :"
-
-                android:textColor="#000" />
-
-            <TextView
-
-                android:id="@+id/tmpunganrumah"
-
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
-
-                android:layout_marginRight="10dp"
-
-                android:layout_weight="1"
-
-                android:text="tmpunganrumah"
-
-                android:textColor="#0000dd"
-
-                android:textSize="15dip"
-
-                />
-
-        </TableRow>
         <TableRow
 
             android:layout_width="fill_parent"
@@ -288,7 +250,42 @@ android:layout_marginTop="10dp"
 
                 android:textSize="15dp" />
         </TableRow>
+        <TableRow
 
+            android:layout_width="fill_parent"
+
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="2dp"
+
+                android:text="Total Jentik :"
+
+                android:textColor="#000" />
+
+            <TextView
+
+                android:id="@+id/totaljentik_tampil"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="10dp"
+
+                android:layout_weight="1"
+
+                android:text="Total Jentik"
+
+                android:textColor="#0000dd"
+
+                android:textSize="15dp" />
+        </TableRow>
 
     </TableLayout>
 

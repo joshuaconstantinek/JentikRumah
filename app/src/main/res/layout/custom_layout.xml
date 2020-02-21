@@ -52,16 +52,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Adate"/>
 
-            <TextView
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jumlah Tampungan Rumah" />
-            <EditText
-                android:id="@+id/edit_Btampunganrumah"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundtext" />
             <TextView
 
                 android:layout_width="match_parent"
@@ -112,6 +103,16 @@
                 android:orientation="horizontal"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Jentik" />
+            <EditText
+                android:id="@+id/totaljentikEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/roundtext" />
         </LinearLayout>
 
     </RelativeLayout>

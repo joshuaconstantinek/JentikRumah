@@ -30,7 +30,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class    PantauanFragment extends Fragment  {
-EditText tmpnganrumah,tmpunganluar,tmpungandalam,jentikluar,jentikdalam;
+EditText tmpnganrumah,tmpunganluar,tmpungandalam,jentikluar,jentikdalam,total_satu_input,total_keseluruhan;
 TextView date,namauser,setnamauser;
 Button addData;
 FirebaseDatabase database;
@@ -42,11 +42,10 @@ String userId;
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_pantauan, container, false);
-        tmpnganrumah = root.findViewById(R.id.Btampunganrumah);
-        tmpunganluar = root.findViewById(R.id.Ctampunaganluar);
-        tmpungandalam = root.findViewById(R.id.Dtampungandalam);
-        jentikluar = root.findViewById(R.id.Ejentikluar);
-        jentikdalam = root.findViewById(R.id.Fjentikdalam);
+        tmpunganluar = root.findViewById(R.id.Btampunaganluar);
+        tmpungandalam = root.findViewById(R.id.Ctampungandalam);
+        jentikluar = root.findViewById(R.id.Djentikluar);
+        jentikdalam = root.findViewById(R.id.Ejentikdalam);
         addData = root.findViewById(R.id.tambahdata);
         date = root.findViewById(R.id.Adate);
         namauser = root.findViewById(R.id.namauser);
@@ -65,10 +64,6 @@ String userId;
                 namauser.setText(documentSnapshot.getString("Username"));
             }
         });
-       //  = FirebaseDatabase.getInstance();
-       //  = database.getReference("message");
-
-       // myRef.setValue("Hello, World!");
         insertData();
         return root;
     }
@@ -82,25 +77,22 @@ String userId;
             public void onClick(View v) {
                  String nama = namauser.getText().toString();
                  String Date = date.getText().toString();
-                 String tmpRumah= tmpnganrumah.getText().toString();
                  String tmpLuar= tmpunganluar.getText().toString();
                  String tmpDalam= tmpungandalam.getText().toString();
                  String JentikLuar= jentikluar.getText().toString();
                  String JentikDalam= jentikdalam.getText().toString();
-
+                int jumlahjntkluar = Integer.parseInt(JentikLuar);
+                int jumlahjntkdlm = Integer.parseInt(JentikDalam);
+                 int total_satu_input2 = jumlahjntkluar + jumlahjntkdlm;
                  //TimeStap
                 long mDateTime = 9999999999999L -System.currentTimeMillis();
                 String mOrderTime = String.valueOf(mDateTime);
-                int contohaja = Integer.parseInt(tmpRumah);
-                if (contohaja > 99){
-                    Toast.makeText(getContext(),"data Lebih dari 99",Toast.LENGTH_SHORT).show();
-                }else {
-                    data_item data_item1 = new data_item(nama, Date, tmpRumah, tmpLuar, tmpDalam, JentikLuar, JentikDalam);
+
+                    data_item data_item1 = new data_item(nama, Date, tmpLuar, tmpDalam, JentikLuar, JentikDalam,total_satu_input2);
                     myRef.child(mOrderTime).setValue(data_item1).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(getContext(), "Berhasil menambah Data Pantauan", Toast.LENGTH_SHORT).show();
-                            tmpnganrumah.setText("");
                             tmpunganluar.setText("");
                             tmpungandalam.setText("");
                             jentikluar.setText("");
@@ -112,7 +104,7 @@ String userId;
                             Toast.makeText(getContext(), "Gagal menambah Data Pantauan", Toast.LENGTH_SHORT).show();
                         }
                     });
-                }
+
             }
         });
     }

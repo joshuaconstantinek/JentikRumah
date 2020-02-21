@@ -53,34 +53,27 @@
                 android:id="@+id/Adate"/>
 
 
+
+
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jumlah Tampungan Rumah" />
+                android:text="Jumlah Tampungan Luar Rumah" />
             <EditText
-                android:id="@+id/Btampunganrumah"
+                android:id="@+id/Btampunaganluar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundtext" />
+
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jumlah Tampungan Luar" />
-            <EditText
-                android:id="@+id/Ctampunaganluar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundtext" />
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jumlah Tampungan Dalam" />
+                android:text="Jumlah Tampungan Dalam Rumah" />
 
             <EditText
-                android:id="@+id/Dtampungandalam"
+                android:id="@+id/Ctampungandalam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundtext"
@@ -92,7 +85,7 @@
                 android:text="Jumlah Tampungan Jentik Luar" />
 
             <EditText
-                android:id="@+id/Ejentikluar"
+                android:id="@+id/Djentikluar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundtext" />
@@ -103,11 +96,14 @@
                 android:text="Jumlah Tampungan Jentik Dalam" />
 
             <EditText
-                android:id="@+id/Fjentikdalam"
+                android:id="@+id/Ejentikdalam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundtext"
-                android:layout_marginBottom="10dp"/>
+                />
+
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:orientation="horizontal"
