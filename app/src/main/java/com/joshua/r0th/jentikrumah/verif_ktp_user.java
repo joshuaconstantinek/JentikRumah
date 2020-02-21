@@ -149,7 +149,7 @@ public class verif_ktp_user extends AppCompatActivity {
                             myRef.child(UploadId).setValue(upload).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast.makeText(getApplicationContext(),"Upload Gagal, Cek koneksi anda !",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(),"Upload Berhasil !",Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }

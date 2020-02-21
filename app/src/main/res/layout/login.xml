@@ -60,33 +60,32 @@
                     android:inputType="textPassword"/>
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="110dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="0dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight="0"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="2"
                     android:onClick="goForgot"
                     android:text="Lupa Password?" />
-                <TextView
-                    android:layout_marginRight="100dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
 
                 <Button
                     android:id="@+id/buttonLogin"
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
                     android:layout_margin="1dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
+                    android:layout_weight="2"
                     android:background="#d67601"
                     android:text="Masuk"
                     android:textAllCaps="false"

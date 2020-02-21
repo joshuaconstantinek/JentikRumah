@@ -1,6 +1,7 @@
 package com.joshua.r0th.jentikrumah.ui.pantauan;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,12 +82,51 @@ String userId;
                  String tmpDalam= tmpungandalam.getText().toString();
                  String JentikLuar= jentikluar.getText().toString();
                  String JentikDalam= jentikdalam.getText().toString();
-                int jumlahjntkluar = Integer.parseInt(JentikLuar);
-                int jumlahjntkdlm = Integer.parseInt(JentikDalam);
-                 int total_satu_input2 = jumlahjntkluar + jumlahjntkdlm;
+
+                 //jadiin int dl baru convert ke if
                  //TimeStap
                 long mDateTime = 9999999999999L -System.currentTimeMillis();
                 String mOrderTime = String.valueOf(mDateTime);
+                if(TextUtils.isEmpty(tmpLuar)){
+                    tmpunganluar.setError("Tampungan Luar Rumah tidak boleh kosong !.");
+                    return;
+                }
+                if(TextUtils.isEmpty(tmpDalam)){
+                    tmpungandalam.setError("Tampungan Dalam Rumah tidak boleh kosong !.");
+                    return;
+                }
+                if(TextUtils.isEmpty(JentikLuar)){
+                    tmpunganluar.setError("Jentik Luar tidak boleh kosong !.");
+                    return;
+                }
+                if(TextUtils.isEmpty(JentikDalam)){
+                    jentikdalam.setError("Jentik Dalam tidak boleh kosong kosong !.");
+                    return;
+                }
+                int jumlahjntkluar = Integer.parseInt(JentikLuar);
+                int jumlahjntkdlm = Integer.parseInt(JentikDalam);
+                int tempatLuar = Integer.parseInt(tmpLuar);
+                int tempatDalam = Integer.parseInt(tmpDalam);
+                if (jumlahjntkluar > 98){
+                    jentikdalam.setError("Jentik Luar tidak boleh Lebih dari 99 !.");
+                    return;
+                }
+                if (jumlahjntkdlm > 98){
+                    jentikdalam.setError("Jentik Dalam tidak boleh Lebih dari 99 !.");
+                    return;
+                }if (tempatLuar > 98){
+                    jentikdalam.setError("Tampungan Dalam tidak boleh Lebih dari 99 !.");
+                    return;
+                }
+
+                if (tempatDalam > 98){
+                    jentikdalam.setError("Tampungan Luar tidak boleh Lebih dari 99 !.");
+                    return;
+                }
+
+
+                int total_satu_input2 = jumlahjntkluar + jumlahjntkdlm;
+                int total_semua = 0;
 
                     data_item data_item1 = new data_item(nama, Date, tmpLuar, tmpDalam, JentikLuar, JentikDalam,total_satu_input2);
                     myRef.child(mOrderTime).setValue(data_item1).addOnSuccessListener(new OnSuccessListener<Void>() {

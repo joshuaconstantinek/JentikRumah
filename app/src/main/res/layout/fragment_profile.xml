@@ -41,16 +41,7 @@
                         android:layout_gravity="center"
                         android:gravity="bottom"
                         />
-                    <TextView
-                        android:layout_weight="1"
-                        android:id="@+id/sin"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="456 Friends"
-                        android:gravity="center"
-                        android:textSize="12dp"
-                        android:textColor="#85ffffff"
-                        />
+
                 </LinearLayout>
                 <ImageView
                     android:layout_width="100dp"
@@ -74,16 +65,7 @@
                         android:gravity="bottom"
 
                         />
-                    <TextView
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:id="@+id/sinn"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="562 Followings"
-                        android:layout_gravity="center"
-                        android:textSize="12dp"
-                        android:textColor="#85ffffff"
+
                         />
                 </LinearLayout>
             </LinearLayout>
@@ -113,19 +95,20 @@
                 android:background="#0000"
                 android:padding="16dp"
                 android:gravity="left" />
+
             <TextView
 
-                android:layout_weight="1"
                 android:id="@+id/profile1"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="#181737"
-                android:textColor="#181737"
-                android:maxLength="12"
+                android:layout_weight="1"
                 android:background="#0000"
+                android:gravity="right"
+                android:maxLength="30"
                 android:padding="16dp"
-                android:gravity="right" />
+                android:textColor="#181737"
+                android:textColorHint="#181737"
+                android:textSize="16dp" />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -266,18 +249,20 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:padding="16dp"
-                android:text="Mohon Tunggu" />
+                android:text="Belum Terverifikasi" />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#dad8d8" />
         <Button
+            android:textColor="#fff"
+            android:background="#d67601"
             android:visibility="visible"
             android:id="@+id/buttoncontohverif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Verifikasi Identitas"
+            android:text="  Verifikasi Identitas  "
             android:layout_gravity="center"/>
 
     </LinearLayout>

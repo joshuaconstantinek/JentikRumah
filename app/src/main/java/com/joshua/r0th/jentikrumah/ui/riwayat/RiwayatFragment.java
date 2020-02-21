@@ -2,6 +2,7 @@ package com.joshua.r0th.jentikrumah.ui.riwayat;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -38,6 +39,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.joshua.r0th.jentikrumah.LoginActivity;
 import com.joshua.r0th.jentikrumah.R;
 import com.joshua.r0th.jentikrumah.ui.pantauan.data_item;
 
@@ -61,6 +63,7 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+
         View root = inflater.inflate(R.layout.fragment_riwayat, container, false);
             recyclerView = root.findViewById(R.id.rec1);
             recyclerView.setHasFixedSize(true);
@@ -71,6 +74,7 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
 
         setHasOptionsMenu(true);
         showtask();
+        totalsemua();
                 return root;
     }
 
@@ -91,6 +95,25 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
                 options = new FirebaseRecyclerOptions.Builder<data_item>()
                         .setQuery(query, data_item.class)
                         .build();
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                            int sum = 0;
+                            sum += postSnapshot.child("gtotal_satu").getValue(Integer.class);
+
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+
+                });
 
                 adapter2 = new FirebaseRecyclerAdapter<data_item, viewHolder>(options) {
                     @Override
@@ -103,6 +126,8 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
                         viewHolder.jntkluar.setText(data_item.getEjentikliuar());
                         viewHolder.jntkdlm.setText(data_item.getFjentikdalam());
                         viewHolder.rvtotal.setText(Integer.toString(data_item.getGtotal_satu()));
+
+
                     }
 
                     @NonNull
@@ -124,13 +149,38 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
 
 
     @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
+    public boolean onContextItemSelected(@NonNull final MenuItem item) {
         if(item.getTitle().equals("Update")){
             showUpdateDialog(adapter2.getRef(item.getOrder()).getKey(), adapter2.getItem(item.getOrder()));
 
 
         } else if(item.getTitle().equals("Delete")){
-            deleteTask(adapter2.getRef(item.getOrder()).getKey());
+            final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+            alertDialogBuilder.setTitle("Hapus Data ?");
+
+            // set pesan dari dialog
+            alertDialogBuilder
+                    .setMessage("Menghapus data ini ?")
+                    .setIcon(R.mipmap.ic_launcher_round)
+                    .setCancelable(false)
+                    .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            deleteTask(adapter2.getRef(item.getOrder()).getKey());
+                        }
+                    })
+                    .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            dialog.dismiss();
+                        }
+                    });
+
+            // membuat alert dialog dari builder
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // menampilkan alert dialog
+            alertDialog.show();
+
         }
 
         return super.onContextItemSelected(item);
@@ -161,7 +211,7 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
         edit_tmpgrmhdlm.setText(item.getDtampungandalam());
         edit_jntikLuar.setText(item.getEjentikliuar());
         edit_jntikDalam.setText(item.getFjentikdalam());
-        total_satu_input.setText(item.getGtotal_satu());
+        total_satu_input.setText(Integer.toString(item.getGtotal_satu()));
 
         builder.setView(updateLayout);
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -200,8 +250,57 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.delete_all){
-            reference.removeValue();
+            final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+            // set title dialog
+            alertDialogBuilder.setTitle("Hapus semua data ?");
+
+            // set pesan dari dialog
+            alertDialogBuilder
+                    .setMessage("Menghapus semua data ?")
+                    .setIcon(R.mipmap.ic_launcher_round)
+                    .setCancelable(false)
+                    .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            reference.removeValue();
+                        }
+                    })
+                    .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // jika tombol ini diklik, akan menutup dialog
+                            // dan tidak terjadi apa2
+                            dialog.dismiss();
+                        }
+                    });
+
+            // membuat alert dialog dari builder
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // menampilkan alert dialog
+            alertDialog.show();
+
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void totalsemua(){
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userId = fAuth.getCurrentUser().getUid();
+
+
+
+
+        DocumentReference documentReference = fStore.collection("users").document(userId);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                String namasearch = documentSnapshot.getString("Username");
+                Query query = reference.orderByChild("gtotal_satu").equalTo(namasearch);
+
+
+
+            }
+        });
     }
 }

@@ -108,7 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Total Jentik" />
-            <EditText
+            <TextView
                 android:id="@+id/totaljentikEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

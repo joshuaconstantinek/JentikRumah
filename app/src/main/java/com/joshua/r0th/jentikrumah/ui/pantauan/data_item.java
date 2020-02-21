@@ -8,6 +8,7 @@ public class data_item {
     String Ejentikliuar;
     String Fjentikdalam;
     int Gtotal_satu;
+
     public data_item(){
 
     }
@@ -78,4 +79,6 @@ public class data_item {
     public void setGtotal_satu(int gtotal_satu) {
         Gtotal_satu = gtotal_satu;
     }
+
+
 }

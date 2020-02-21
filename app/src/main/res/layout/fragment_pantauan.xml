@@ -61,6 +61,8 @@
                 android:layout_height="wrap_content"
                 android:text="Jumlah Tampungan Luar Rumah" />
             <EditText
+                app:errorEnabled="true"
+                android:inputType="numberDecimal"
                 android:id="@+id/Btampunaganluar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,29 +75,37 @@
                 android:text="Jumlah Tampungan Dalam Rumah" />
 
             <EditText
+                app:errorEnabled="true"
+                android:inputType="numberDecimal"
                 android:id="@+id/Ctampungandalam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundtext"
                 />
+
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jumlah Tampungan Jentik Luar" />
+                android:text="Jumlah Jentik Luar" />
 
             <EditText
+                app:errorEnabled="true"
+                android:inputType="numberDecimal"
                 android:id="@+id/Djentikluar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundtext" />
+
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jumlah Tampungan Jentik Dalam" />
+                android:text="Jumlah Jentik Dalam" />
 
             <EditText
+                app:errorEnabled="true"
+                android:inputType="numberDecimal"
                 android:id="@+id/Ejentikdalam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
