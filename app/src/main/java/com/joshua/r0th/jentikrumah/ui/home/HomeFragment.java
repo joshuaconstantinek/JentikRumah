@@ -7,17 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
-import com.joshua.r0th.jentikrumah.BaseBackPressedListener;
-import com.joshua.r0th.jentikrumah.MainActivity;
-import com.joshua.r0th.jentikrumah.OnBackPressed;
 import com.joshua.r0th.jentikrumah.R;
 
 import java.util.ArrayList;

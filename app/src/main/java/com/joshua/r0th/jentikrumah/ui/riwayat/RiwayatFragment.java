@@ -95,16 +95,21 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
                 options = new FirebaseRecyclerOptions.Builder<data_item>()
                         .setQuery(query, data_item.class)
                         .build();
+
                 query.addValueEventListener(new ValueEventListener() {
+                    int sum = 0;
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
                         for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                            int sum = 0;
-                            sum += postSnapshot.child("gtotal_satu").getValue(Integer.class);
+
+                            sum = sum + postSnapshot.child("gtotal_satu").getValue(Integer.class);
 
 
+                        }
+                        if (sum > 30){
+                            showDialog();
                         }
                     }
 
@@ -302,5 +307,29 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
 
             }
         });
+    }
+    private void showDialog(){
+
+        final androidx.appcompat.app.AlertDialog.Builder alertDialogBuilder = new androidx.appcompat.app.AlertDialog.Builder(getContext());
+
+        // set title dialog
+        alertDialogBuilder.setTitle("WARNING !");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setMessage("Jentik Rumah anda sudah melebihi batas ! Segera Lakukan Fogging")
+                .setIcon(R.mipmap.ic_launcher_round)
+                .setCancelable(false)
+                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        dialog.dismiss();
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        androidx.appcompat.app.AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
     }
 }
