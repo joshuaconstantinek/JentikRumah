@@ -78,7 +78,7 @@ public class RiwayatFragmentAdmin extends Fragment {
                 viewHolder.rvtmpgdlm.setText(data_item.getDtampungandalam());
                 viewHolder.jntkluar.setText(data_item.getEjentikliuar());
                 viewHolder.jntkdlm.setText(data_item.getFjentikdalam());
-                viewHolder.rvtotal.setText(data_item.getGtotal_satu());
+                viewHolder.rvtotal.setText(Integer.toString(data_item.getGtotal_satu()));
 
             }
 
