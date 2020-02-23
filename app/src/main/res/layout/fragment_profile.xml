@@ -11,90 +11,50 @@
         >
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="270dp"
+            android:src="@drawable/squareimground_round_xxhdpi"
 
-            android:scaleType="centerCrop"
             android:layout_marginBottom="25dp"
             />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom">
+            android:layout_height="372dp"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp"
-                    >
-                    <ImageView
-                        android:layout_weight="1"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-
-                        android:layout_gravity="center"
-                        android:gravity="bottom"
-                        />
-
-                </LinearLayout>
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-
-                    android:gravity="bottom"
-                    />
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp"
-                    >
-                    <ImageView
-                        android:layout_weight="1"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-
-                        android:layout_gravity="center"
-                        android:gravity="bottom"
-
-                        />
-
-                        />
-                </LinearLayout>
-            </LinearLayout>
+                android:orientation="horizontal" />
         </LinearLayout>
     </FrameLayout>
+
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="70dp">
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/usrusr"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="left"
+                android:maxLength="12"
+                android:padding="16dp"
                 android:text="Username"
                 android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left" />
+                android:textSize="16dp" />
 
             <TextView
 
@@ -110,10 +70,12 @@
                 android:textColorHint="#181737"
                 android:textSize="16dp" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#dad8d8"/>
+            android:background="#dad8d8" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -131,31 +93,30 @@
                 android:text="Email"
                 android:textColor="#a2a1b8"
                 android:textSize="16dp" />
+
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/email"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="#1b193b"
-                android:hint=" "
-                android:textColor="#181737"
+                android:layout_weight="1"
                 android:background="#0000"
-                android:padding="16dp"
                 android:gravity="right"
-                />
+                android:hint=" "
+                android:padding="16dp"
+                android:textColor="#181737"
+                android:textColorHint="#1b193b"
+                android:textSize="16dp" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#dad8d8"/>
+            android:background="#dad8d8" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/pswrd"
@@ -170,29 +131,31 @@
                 android:textColor="#a2a1b8"
                 android:textSize="16dp"
                 app:passwordToggleEnabled="true" />
+
             <TextView
 
-                android:layout_weight="1"
                 android:id="@+id/notelp"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="#1b193b"
-                android:textColor="#181737"
-                android:maxLength="12"
+                android:layout_weight="1"
                 android:background="#0000"
+                android:gravity="right"
+                android:maxLength="12"
                 android:padding="16dp"
-                android:gravity="right" />
+                android:textColor="#181737"
+                android:textColorHint="#1b193b"
+                android:textSize="16dp" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#dad8d8"/>
+            android:background="#dad8d8" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/fbook"
@@ -225,8 +188,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
 
@@ -251,19 +213,21 @@
                 android:padding="16dp"
                 android:text="Belum Terverifikasi" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#dad8d8" />
+
         <Button
-            android:textColor="#fff"
-            android:background="#d67601"
-            android:visibility="visible"
             android:id="@+id/buttoncontohverif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#d67601"
             android:text="  Verifikasi Identitas  "
-            android:layout_gravity="center"/>
+            android:textColor="#fff"
+            android:visibility="visible" />
 
     </LinearLayout>
 

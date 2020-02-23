@@ -10,4 +10,9 @@
         android:paddingLeft="0dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sumber : promkes.kemkes.go.id"/>
 </LinearLayout>

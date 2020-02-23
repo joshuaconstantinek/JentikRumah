@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -19,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.joshua.r0th.jentikrumah.LoginActivity;
 import com.joshua.r0th.jentikrumah.MainActivity;
 import com.joshua.r0th.jentikrumah.R;
+import com.joshua.r0th.jentikrumah.ui.home.HomeFragment;
 
 public class LogoutFragment extends Fragment {
 FirebaseAuth fAuth;
@@ -53,9 +55,8 @@ showDialog();
                 })
                 .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // jika tombol ini diklik, akan menutup dialog
-                        // dan tidak terjadi apa2
                         dialog.dismiss();
+
                     }
                 });
 
@@ -65,4 +66,5 @@ showDialog();
         // menampilkan alert dialog
         alertDialog.show();
     }
+
 }
