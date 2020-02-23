@@ -9,7 +9,8 @@
 
     android:orientation="vertical"
 
-    android:padding="2dp">
+    android:padding="2dp"
+    android:background="@drawable/gradient_display_data">
 
     <TableLayout
 
@@ -65,14 +66,14 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
+
+                android:layout_marginLeft="15dp"
 
                 android:layout_marginRight="2dp"
 
-                android:text="Status : "
+                android:text="Status                    : "
 
                 android:textColor="#000" />
 

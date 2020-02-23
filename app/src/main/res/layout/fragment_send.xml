@@ -11,11 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:src="@drawable/squareimground_round_xxhdpi"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="PENCET BACK UNTUK KEMBALI KE HALAMAN SEBELUM NYA !"
-        android:textSize="15sp"
         android:gravity="center"
-        android:textStyle="bold"/>
+        android:text="TEKAN BACK UNTUK KEMBALI KE HALAMAN SEBELUM NYA !"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 </LinearLayout>

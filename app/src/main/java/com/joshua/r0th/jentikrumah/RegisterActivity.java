@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
         if(user != null)
         {
             String email = user.getEmail();
-            if (email.equals("joshuaconstantine.k@gmail.com")){
+            if (email.equals("@admin.com")){
                 Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
                 startActivity(intent);
             }else{

@@ -33,9 +33,9 @@ android:layout_marginTop="10dp"
 
                 android:layout_marginRight="2dp"
 
-                android:text="Nama Penginput"
-
+                android:text="Nama Penginput :"
                 android:textColor="#000" />
+
 
             <TextView
 
@@ -46,8 +46,6 @@ android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
 
                 android:layout_marginRight="10dp"
-
-                android:layout_weight="1"
 
                 android:text="Full Name"
 
@@ -72,7 +70,7 @@ android:layout_marginTop="10dp"
 
                 android:layout_marginRight="2dp"
 
-                android:text="Tanggal: "
+                android:text="Tanggal  :"
 
                 android:textColor="#000" />
 
@@ -111,7 +109,7 @@ android:layout_marginTop="10dp"
 
                 android:layout_marginRight="2dp"
 
-                android:text="Tampungan Luar Rumah :"
+                android:text="Tampungan Luar Rumah  :"
 
                 android:textColor="#000" />
 
@@ -190,7 +188,7 @@ android:layout_marginTop="10dp"
 
                 android:layout_marginRight="2dp"
 
-                android:text="Jentik Luar Rumah :"
+                android:text="Jentik Luar Rumah  :"
 
                 android:textColor="#000" />
 
@@ -264,7 +262,7 @@ android:layout_marginTop="10dp"
 
                 android:layout_marginRight="2dp"
 
-                android:text="Total Jentik :"
+                android:text="Total Jentik  :"
 
                 android:textColor="#000" />
 

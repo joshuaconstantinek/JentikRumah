@@ -27,11 +27,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.joshua.r0th.jentikrumah.R;
@@ -77,7 +77,8 @@ private data_adapter madapter;
         setHasOptionsMenu(true);
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("data_verifikasi");
-        mdblistener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
+        Query query = mDatabaseRef.orderByChild("mstatus").equalTo("Belum Terverifikasi");
+        mdblistener = query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mUpload.clear();
@@ -99,7 +100,7 @@ private data_adapter madapter;
 
     @Override
     public void OnItemClick(int position) {
-        Toast.makeText(getContext(),"normalClick" + position,Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
