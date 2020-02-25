@@ -54,6 +54,7 @@ private itemAdapter adapter;
 private List<data_item> items;
 private DatabaseReference reference;
 private FirebaseDatabase database;
+public DatabaseReference myRef2;
     String userId;
 FirebaseRecyclerOptions<data_item> options;
 FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
@@ -74,7 +75,7 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
 
         setHasOptionsMenu(true);
         showtask();
-        totalsemua();
+
                 return root;
     }
 
@@ -171,6 +172,9 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
                     .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
                             deleteTask(adapter2.getRef(item.getOrder()).getKey());
+                            remove_item();
+
+
                         }
                     })
                     .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
@@ -194,6 +198,7 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
 
     private void deleteTask(String key) {
         reference.child(key).removeValue();
+
     }
 
     private void showUpdateDialog(final String key, data_item item) {
@@ -288,29 +293,10 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
     }
 
 
-    public void totalsemua(){
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
-        userId = fAuth.getCurrentUser().getUid();
 
-
-
-
-        DocumentReference documentReference = fStore.collection("users").document(userId);
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-                String namasearch = documentSnapshot.getString("Username");
-                Query query = reference.orderByChild("gtotal_satu").equalTo(namasearch);
-
-
-
-            }
-        });
-    }
     private void showDialog(){
 
-        final androidx.appcompat.app.AlertDialog.Builder alertDialogBuilder = new androidx.appcompat.app.AlertDialog.Builder(getContext());
+        final androidx.appcompat.app.AlertDialog.Builder alertDialogBuilder = new androidx.appcompat.app.AlertDialog.Builder(getActivity());
 
         // set title dialog
         alertDialogBuilder.setTitle("WARNING !");
@@ -331,5 +317,38 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
 
         // menampilkan alert dialog
         alertDialog.show();
+    }
+    private void remove_item(){
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userId = fAuth.getCurrentUser().getUid();
+        DocumentReference documentReference = fStore.collection("users").document(userId);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                String namacek = documentSnapshot.getString("Username");
+                database = FirebaseDatabase.getInstance();
+                myRef2 = database.getReference("input_delay");
+                final Query query = myRef2.orderByChild("namainput_delay").equalTo(namacek);
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                            postSnapshot.getRef().removeValue();
+
+                        }
+                        query.removeEventListener(this);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+
+                });
+
+            }
+        });
+
     }
 }
