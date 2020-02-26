@@ -274,6 +274,9 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
                     .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
                             reference.removeValue();
+                            if (getActivity() != null ){
+                                remove_item();
+                            }
                         }
                     })
                     .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
