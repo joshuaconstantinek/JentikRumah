@@ -222,8 +222,8 @@ Query mPostReference;
                     long waktu1 = Long.parseLong(waktu_sekarang);
                     long waktu2 = Long.parseLong(waktu_yangdatang);
 
-                    waktuSatu = waktuSatu + waktu1;
-                    waktuDepan = waktuDepan + waktu2;
+                    waktuSatu = waktu1;
+                    waktuDepan =  waktu2;
 
                 }
                 Log.i(TAG, String.valueOf(waktuSatu));
@@ -243,7 +243,7 @@ Query mPostReference;
                     textwarning.setVisibility(View.GONE);
                     addData.setVisibility(View.VISIBLE);
                     addData.setEnabled(true);
-                    String nama2 = namauser.getText().toString();
+
 
 
 

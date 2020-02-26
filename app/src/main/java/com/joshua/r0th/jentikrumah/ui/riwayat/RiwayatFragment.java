@@ -110,7 +110,9 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
 
                         }
                         if (sum > 30){
-                            showDialog();
+                            if (getActivity() != null) {
+                                showDialog();
+                            }
                         }
                     }
 
