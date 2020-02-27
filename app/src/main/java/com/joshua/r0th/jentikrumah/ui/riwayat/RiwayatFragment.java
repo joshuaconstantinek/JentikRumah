@@ -169,7 +169,7 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
             // set pesan dari dialog
             alertDialogBuilder
                     .setMessage("Menghapus data ini ?")
-                    .setIcon(R.mipmap.ic_launcher_round)
+                    .setIcon(R.mipmap.squareimground_round)
                     .setCancelable(false)
                     .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
@@ -269,7 +269,7 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
             // set pesan dari dialog
             alertDialogBuilder
                     .setMessage("Menghapus semua data ?")
-                    .setIcon(R.mipmap.ic_launcher_round)
+                    .setIcon(R.mipmap.squareimground_round)
                     .setCancelable(false)
                     .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
@@ -309,7 +309,7 @@ FirebaseRecyclerAdapter<data_item, viewHolder> adapter2;
         // set pesan dari dialog
         alertDialogBuilder
                 .setMessage("Jentik Rumah anda sudah melebihi batas ! Segera Lakukan Fogging")
-                .setIcon(R.mipmap.ic_launcher_round)
+                .setIcon(R.mipmap.squareimground_round)
                 .setCancelable(false)
                 .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
