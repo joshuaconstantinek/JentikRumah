@@ -75,22 +75,24 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundtext"
                 />
+
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jumlah Tampungan Jentik Luar" />
+                android:text="Jumlah Jentik Tampungan Luar" />
 
             <EditText
                 android:id="@+id/edit_Ejentikluar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundtext" />
+
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jumlah Tampungan Jentik Dalam" />
+                android:text="Jumlah Jentik Tampungan Dalam" />
 
             <EditText
                 android:id="@+id/edit_Fjentikdalam"

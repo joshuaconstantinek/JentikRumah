@@ -34,6 +34,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="275dp">
             <LinearLayout
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
@@ -55,7 +56,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:text="1.1"
+                        android:text="1.3"
                         android:textColor="#4fe5ff"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -78,58 +79,37 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:text="Fidhoh"
+                        android:text="Hafidhoh A"
                         android:textColor="#4fe5ff"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Status"
-                        android:textSize="20sp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="BETA"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:paddingTop="10dp"
-                        android:textColor="#4fe5ff"/>
 
-                </LinearLayout>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="300dp"
+        android:layout_width="324dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_marginTop="45dp"
-        android:background="@drawable/roundcorner">
+        android:background="@drawable/roundcorner"
+        android:orientation="vertical">
 
         <TextView
-            android:justificationMode="inter_word"
+            android:layout_width="259dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:textStyle="bold"
+            android:justificationMode="inter_word"
+            android:text="Aplikasi Jentik Rumah adalah sebuah aplikasi inputan data pantauan jentik nyamuk yang berada di rumah dan memberikan informasi-informasi tentang edukasi penanganan jentik nyamuk, PSN 3M dan DBD."
+            android:textColor="#4fe5ff"
             android:textSize="20sp"
-            android:layout_gravity="center"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:text="Aplikasi ini di ciptakan untuk menghitung banyak nya jentik di dalam rumah anda dan akan menberi informasi apakah jentik sudah terlalu banyak atau belum"
-            android:textColor="#4fe5ff" />
+            android:textStyle="bold" />
 
     </LinearLayout>
 </LinearLayout>

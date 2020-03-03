@@ -87,7 +87,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jumlah Jentik Luar" />
+                android:text="Jumlah Jentik Tampungan Luar" />
 
             <EditText
                 app:errorEnabled="true"
@@ -101,7 +101,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jumlah Jentik Dalam" />
+                android:text="Jumlah Jentik Tampungan Dalam" />
 
             <EditText
                 app:errorEnabled="true"

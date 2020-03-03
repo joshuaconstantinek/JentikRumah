@@ -7,8 +7,8 @@ android {
         applicationId "com.joshua.r0th.jentikrumah"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 2
-        versionName "1.2"
+        versionCode 5
+        versionName "1.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
