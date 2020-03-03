@@ -9,21 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.joshua.r0th.jentikrumah.MainActivity;
 import com.joshua.r0th.jentikrumah.R;
-import com.joshua.r0th.jentikrumah.contoh;
-
-import java.util.concurrent.Executor;
+import com.joshua.r0th.jentikrumah.melihat_profil;
 
 public class ProfileFragment extends Fragment {
 TextView username;
@@ -49,7 +40,7 @@ Button contoh;
         contoh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), com.joshua.r0th.jentikrumah.contoh.class));
+                startActivity(new Intent(getActivity(), melihat_profil.class));
             }
         });
         return root;

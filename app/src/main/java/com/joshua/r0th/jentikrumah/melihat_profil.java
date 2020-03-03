@@ -24,17 +24,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.joshua.r0th.jentikrumah.ui.profile.ProfileFragment;
 
-public class contoh extends AppCompatActivity {
+public class melihat_profil extends AppCompatActivity {
     TextView username;
     TextView status;
     TextView Email;
     TextView Notelp;
     TextView alamatrumah;
-    TextView tipelogin1;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     DatabaseReference myref;
-    FirebaseDatabase mydatabase;
     String userId;
     Button buttoncontoh;
     @Override
@@ -51,7 +49,7 @@ public class contoh extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
         buttoncontoh = findViewById(R.id.buttoncontohverif);
         userId = fAuth.getCurrentUser().getUid();
-
+        //mengambil data dari firestore sesuai dengan userID yang telah di daftarkan / yang sedang berjalan
         DocumentReference documentReference = fStore.collection("users").document(userId);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -62,19 +60,21 @@ public class contoh extends AppCompatActivity {
                 alamatrumah.setText(documentSnapshot.getString("Alamat"));
                 final String username2 = username.getText().toString().trim();
 
-
+                //Mencari query sesuai dengan nama yang sudah ada untuk di cek apakah user sudah verifikasi KTP atau belom
                 Query query=myref.orderByChild("mName").equalTo(username2);
 
                 query.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-
+                        //Mengambil data yang ada sesuai dengan pencarian Query di atas
                         for (DataSnapshot data:dataSnapshot.getChildren()){
 
 
                             Upload_verif models=data.getValue(Upload_verif.class);
                             status.setText(models.getMstatus().trim());
                             final String status2 = status.getText().toString().trim();
+                            //membuat kondisi dimana jika status belum verif makan button verifikasi akan ada
+                            //sebalik nya jika kondisi sudah verif atau else makan tombol hilang
                             if (status2.equals("Belum Terverifikasi")){
                                 buttoncontoh.setVisibility(View.VISIBLE);
                             }else{
@@ -93,7 +93,7 @@ public class contoh extends AppCompatActivity {
 
             }
         });
-
+        //jika button verifikasi di tekan maka akan teralifkan ke class verif kt user
         buttoncontoh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

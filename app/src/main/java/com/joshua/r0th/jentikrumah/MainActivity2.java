@@ -3,24 +3,14 @@ package com.joshua.r0th.jentikrumah;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import android.view.View;
 
-import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -28,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-import android.widget.TextView;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -72,7 +61,7 @@ public class MainActivity2 extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
     public void goProfil(View view){
-        Intent intent = new Intent(getApplicationContext(), contoh.class);
+        Intent intent = new Intent(getApplicationContext(), melihat_profil.class);
         startActivity(intent);
     }
 
