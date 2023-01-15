@@ -1,5 +1,4 @@
-# JentikRumah
-Jentik Rumah Online
+# Larvae Counter
+Simple Larvae counter app using Java and Firebase as it's server
 
-Please if you like my works at least follow me
-i give you free updated acces and you should give me your follow hehehe thx
+Pleas send an issue or pull request for future development, thanks
